@@ -135,7 +135,7 @@ looto/
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/looto.com.git
+   git clone https://github.com/AnikDashora/looto.com.git
    cd looto.com
    ```
 
