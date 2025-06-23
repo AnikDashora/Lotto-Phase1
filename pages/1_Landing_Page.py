@@ -55,7 +55,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.title("Welcome to LOOTO")
+st.title("Welcome to LOTTO")
 tag_line = "Ab nahi loge tho kab....."
 st.subheader(tag_line)
 start_button_flag = start_button = st.button("Let's start")
