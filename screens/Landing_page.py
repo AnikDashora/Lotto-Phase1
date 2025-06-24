@@ -60,7 +60,7 @@ def landing_page():
     st.title("Welcome to LOTTO")
     tag_line = "Ab nahi loge tho kab....."
     st.subheader(tag_line)
-    start_button_flag = start_button = st.button("Let's start")
-
-
- 
+    start_button_flag = st.button("Let's start")
+    if(start_button_flag):
+        st.session_state["page"] = "home_page"
+        st.rerun()
