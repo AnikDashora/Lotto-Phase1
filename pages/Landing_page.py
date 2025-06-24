@@ -1,64 +1,66 @@
 import streamlit as st
 import time
-st.markdown(
-    """
-    <style>
-    /* Hide Streamlit header, main menu, and footer */
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
 
-    /* Hide the orange loading progress bar */
-    div[data-testid="stDecoration"] {
-        display: none !important;
-    }
+def landing_page():
+    st.markdown(
+        """
+        <style>
+        /* Hide Streamlit header, main menu, and footer */
+        #MainMenu {visibility: hidden;}
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
 
-    /* Remove top padding to avoid white space */
-    .block-container {
-        padding-top: 0rem !important;
-    }
+        /* Hide the orange loading progress bar */
+        div[data-testid="stDecoration"] {
+            display: none !important;
+        }
 
-    /* Center content using flexbox */
-    section[data-testid="stMain"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        min-height: 80vh;
-    }
+        /* Remove top padding to avoid white space */
+        .block-container {
+            padding-top: 0rem !important;
+        }
 
-    /* Typing animation for tagline, repeats infinitely */
-    #ab-nahi-loge-tho-kab {
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 2px solid black;
-        color: black;
-        font-size: 1.5rem;
-        width: 0;
-        animation: typing 3s steps(25, end) 0.75s forwards, blink 100s step-end infinite;
-        animation-iteration-count: infinite;
-    }
+        /* Center content using flexbox */
+        section[data-testid="stMain"] {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+        }
 
-    @keyframes typing {
-        0% { width: 0% }
-        80% { width: 10.5em }
-        100% { width: 10.5em }
-    }
-    @keyframes blink {
-        50% { border-color: transparent }
-    }
-    </style>
-    
-    """,
-    unsafe_allow_html=True,
-)
+        /* Typing animation for tagline, repeats infinitely */
+        #ab-nahi-loge-tho-kab {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid black;
+            color: black;
+            font-size: 1.5rem;
+            width: 0;
+            animation: typing 3s steps(25, end) 0.75s forwards, blink 100s step-end infinite;
+            animation-iteration-count: infinite;
+        }
 
-st.title("Welcome to LOTTO")
-tag_line = "Ab nahi loge tho kab....."
-st.subheader(tag_line)
-start_button_flag = start_button = st.button("Let's start")
+        @keyframes typing {
+            0% { width: 0% }
+            80% { width: 10.5em }
+            100% { width: 10.5em }
+        }
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+        </style>
+        
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.title("Welcome to LOTTO")
+    tag_line = "Ab nahi loge tho kab....."
+    st.subheader(tag_line)
+    start_button_flag = start_button = st.button("Let's start")
 
 
  
