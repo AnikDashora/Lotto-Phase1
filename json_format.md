@@ -11,8 +11,7 @@ This document outlines the structure and expected data types for all JSON files 
   "user_id": "uid",             // string: unique user identifier
   "username": "username",       // string: display name
   "email": "email",             // string: user email address
-  "password": "Pass@123",       // string: hashed password or plain (for demo)
-  "device_id": "AA:BB:CC:DD:EE:FF" // string: user's MAC/device ID
+  "password": "Pass@123"       // string: hashed password or plain (for demo)
 }
 ```
 

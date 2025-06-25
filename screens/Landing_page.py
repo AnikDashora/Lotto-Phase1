@@ -62,5 +62,5 @@ def landing_page():
     st.subheader(tag_line)
     start_button_flag = st.button("Let's start")
     if(start_button_flag):
-        st.session_state["page"] = "home_page"
+        st.session_state["page"] = "auth_page"
         st.rerun()

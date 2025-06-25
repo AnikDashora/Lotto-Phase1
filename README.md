@@ -85,8 +85,7 @@ looto/
   "user_id": "uid",
   "username": "username",
   "email": "email",
-  "password": "Pass@123",
-  "device_id": "AA:BB:CC:DD:EE:FF"
+  "password": "Pass@123"
 }
 ```
 
