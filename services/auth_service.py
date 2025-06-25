@@ -33,17 +33,13 @@ def generate_user_id():
         uid = len(users)+1
 
     return create_ids(uid)
-    
-def generate_mac_address():
-    return str(uuid.getnode())
 
 def user_serialization(user_data):
     user = {
         "uid":generate_user_id(),
         "username":user_data["username"],
         "email":user_data["useremail"],
-        "password" : user_data["userpassword"],
-        "device_id":generate_mac_address()
+        "password" : user_data["userpassword"]
     }
     if not check_file_exist():
         raise FileNotFoundError(f"User data file '{USER_DATA_FILE}' does not exist.")
