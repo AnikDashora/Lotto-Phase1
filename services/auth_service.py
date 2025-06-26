@@ -103,4 +103,10 @@ def encrypt_password(email,password):
         encrypted_password += str((ord(i)**2)+(ord(i)*5)+10) #x^2 + 5x + 10
     return encrypted_password
 
-
+def verify_user(email,password):
+    if(not(if_user_exsits(email))):
+        return False
+    if(verify_password(email,password)):
+        return True
+    else:
+        return False

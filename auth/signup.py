@@ -43,14 +43,18 @@ def sign_up_page():
 
     st.title("Create An Account")
     st.title("Login")
-    
+    button_text = ""
     username = st.text_input("Name",placeholder="eg: Jho Doe")
     name_flag = validate_name(username)
     useremail = st.text_input("Email",placeholder="eg: Jho.doe@gmail.com")
     email_flag = validate_email(useremail)
     userpassword = st.text_input("Password",placeholder="eg: Qu@314Pra#th",type="password")
     password_flag = validate_password(userpassword)
-    st.button("SIGN UP",on_click=lambda:user_serialization(user_data))
+    if(useremail and if_user_exsits(useremail)):
+        button_text = "Login"
+    else:
+        button_text = "Sign Up"
+    button_flag = st.button(label=button_text)
 
     # Dynamically toggle between "Create An Account" and "Login" titles based on user existence
     if useremail and if_user_exsits(useremail):
