@@ -39,7 +39,7 @@ def user_serialization(user_data):
         "uid":generate_user_id(),
         "username":user_data["username"],
         "email":user_data["useremail"],
-        "password" : user_data["userpassword"]
+        "password" : encrypt_password(user_data["useremail"],user_data["userpassword"])
     }
     if not check_file_exist():
         raise FileNotFoundError(f"User data file '{USER_DATA_FILE}' does not exist.")
@@ -58,7 +58,7 @@ def user_serialization(user_data):
         json.dump(users, file, indent=4)
 
 def user_deserialization():
-    if(not(check_file_exist(USER_DATA_FILE))):
+    if(not(check_file_exist())):
         raise FileNotFoundError(f"User data file '{USER_DATA_FILE}' does not exist.")
     
     try:
@@ -67,3 +67,40 @@ def user_deserialization():
     except (json.JSONDecodeError,FileNotFoundError) as e:
         users = []
     return users
+
+def extract_user_email():
+    users = user_deserialization()
+    emails = [user["email"] for user in users]
+    return emails
+
+def extract_user_name():
+    users = user_deserialization()
+    names = [user["username"] for user in users]
+    return names
+
+def extract_password():
+    users = user_deserialization()
+    password = [user["password"] for user in users]
+    return password
+
+def if_user_exsits(user_email):
+    emails = extract_user_email()
+    return (user_email in emails)
+
+def verify_password(email,password):
+    emails = extract_user_email()
+    passwords = extract_password()
+    user_idx = emails.index(email)
+    return password == encrypt_password(email,passwords[user_idx])
+
+def encrypt_password(email,password):
+    local,domain = email.split("@")
+    del domain
+    half_local_len = len(local)//2 - 1
+    new_password = local[:half_local_len] + password + local[half_local_len:]
+    encrypted_password = ""
+    for i in new_password:
+        encrypted_password += str((ord(i)**2)+(ord(i)*5)+10) #x^2 + 5x + 10
+    return encrypted_password
+
+
