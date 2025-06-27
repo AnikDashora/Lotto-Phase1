@@ -54,67 +54,72 @@ def sign_up_page():
         button_text = "Login"
     else:
         button_text = "Sign Up"
-    button_flag = st.button(label=button_text)
-
-    # Dynamically toggle between "Create An Account" and "Login" titles based on user existence
-    if useremail and if_user_exsits(useremail):
-        # User exists, show Login title and hide Create An Account
-        st.markdown("""
-            <style>
-                h1#create-an-account { display: none; }
-                h1#login {
-                    display: block;
-                    animation: fade-in 0.5s ease;
-                }
-                @keyframes fade-in {
-                    from { opacity: 0; transform: translateY(15px);}
-                    to { opacity: 1; transform: translateY(0);}
-                }
-            </style>
-        """, unsafe_allow_html=True)
-    else:
-        # User does not exist, show Create An Account and hide Login
-        st.markdown("""
-            <style>
-                h1#login { display: none; }
-                h1#create-an-account {
-                    display: block;
-                    animation: fade-in 0.5s ease;
-                }
-                @keyframes fade-in {
-                    from { opacity: 0; transform: translateY(20px);}
-                    to { opacity: 1; transform: translateY(0);}
-                }
-            </style>
-        """, unsafe_allow_html=True)
-    #new user
-    if(name_flag and email_flag and password_flag):
-        st.markdown("""
-            <style>
-                button.st-emotion-cache-1rwb540.e1e4lema2 {
-                    pointer-events: auto;
-                    transition: opacity 1s;
-                    opacity: 1;
-                }
-            </style>
-        """,unsafe_allow_html=True)
-    else:
-        st.markdown("""
-            <style>
-                button.st-emotion-cache-1rwb540.e1e4lema2 {
-                    pointer-events: none;
-                    transition: opacity 1s;
-                    opacity: 0;
-                }
-            </style>
-        """,unsafe_allow_html=True)
-
-    
-    user_data = {
-        "username":username,
-        "useremail":useremail,
-        "userpassword":userpassword,
-    }
-    
+    col1,col2,col3 = st.columns([1,3.5,1])
+    with col1:
+        st.empty()
+    with col2:
+        button_flag = st.button(label=button_text)
+        # Dynamically toggle between "Create An Account" and "Login" titles based on user existence
+        if useremail and if_user_exsits(useremail):
+            # User exists, show Login title and hide Create An Account
+            st.markdown("""
+                <style>
+                    h1#create-an-account { display: none; }
+                    h1#login {
+                        display: block;
+                        animation: fade-in 0.5s ease;
+                    }
+                    @keyframes fade-in {
+                        from { opacity: 0; transform: translateY(15px);}
+                        to { opacity: 1; transform: translateY(0);}
+                    }
+                </style>
+            """, unsafe_allow_html=True)
+        else:
+            # User does not exist, show Create An Account and hide Login
+            st.markdown("""
+                <style>
+                    h1#login { display: none; }
+                    h1#create-an-account {
+                        display: block;
+                        animation: fade-in 0.5s ease;
+                    }
+                    @keyframes fade-in {
+                        from { opacity: 0; transform: translateY(20px);}
+                        to { opacity: 1; transform: translateY(0);}
+                    }
+                </style>
+            """, unsafe_allow_html=True)
+        #new user
+        if(name_flag and email_flag and password_flag):
+            st.markdown("""
+                <style>
+                    button.st-emotion-cache-1rwb540.e1e4lema2 {
+                        pointer-events: auto;
+                        transition: opacity 1s;
+                        opacity: 1;
+                    }
+                </style>
+            """,unsafe_allow_html=True)
+        else:
+            st.markdown("""
+                <style>
+                    button.st-emotion-cache-1rwb540.e1e4lema2 {
+                        pointer-events: none;
+                        transition: opacity 1s;
+                        opacity: 0;
+                    }
+                </style>
+            """,unsafe_allow_html=True)
+        user_data = {
+            "username":username,
+            "useremail":useremail,
+            "userpassword":userpassword,
+        }
+        if(button_text == "Sign Up" and button_flag):
+            user_serialization(user_data)
+    with col3:
+        already_a_user = st.button("Already a user ?",type="tertiary",key="Send to login")
+   
 
 sign_up_page()
