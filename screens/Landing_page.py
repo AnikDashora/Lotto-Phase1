@@ -1,6 +1,12 @@
 import streamlit as st
 import time
+import sys
+import os
 
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
+
+from session_state.session_manager import *
 def landing_page():
     st.markdown(
         """
@@ -60,7 +66,4 @@ def landing_page():
     st.header("Welcome to LOTTO")
     tag_line = "Ab nahi loge tho kab....."
     st.subheader(tag_line)
-    start_button_flag = st.button("Let's start")
-    if(start_button_flag):
-        st.session_state["page"] = "auth_page"
-        st.rerun()
+    st.button("Let's start",on_click=to_signup_page)

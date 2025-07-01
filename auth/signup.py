@@ -1,125 +1,86 @@
 import streamlit as st
 import sys
 import os
-
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from services.data_validation.json_validator import *
-from services.auth_service import user_serialization,if_user_exsits
-def sign_up_page():
-    hide_streamlit_style = """
-            <style>
-                /* Hide Streamlit header, main menu, and footer */
-                #MainMenu {visibility: hidden;}
-                header {visibility: hidden;}
-                footer {visibility: hidden;}
+from session_state.session_manager import handel_already_user
+from services.data_validation.json_validator import validate_email,validate_name,validate_password
 
-                /* Hide the orange loading progress bar */
-                div[data-testid="stDecoration"] {
-                    display: none;
-                }
+remove_header_footer = """
+    <style>
+        #MainMenu {visibility: hidden;}
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
 
-                /* Optional: remove top padding to avoid white space */
-                div.block-container {
-                    padding-top: 0rem;
-                }
-                .stButton.st-emotion-cache-8atqhb.e1mlolmg0{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                h1#create-an-account{
-                    text-align: center;
-                }
-                h1#login {
-                    display:none;
-                    text-align: center;
-                }
-                
-            </style>
-        """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-    st.title("Create An Account")
-    st.title("Login")
-    button_text = ""
-    username = st.text_input("Name",placeholder="eg: Jho Doe")
-    name_flag = validate_name(username)
-    useremail = st.text_input("Email",placeholder="eg: Jho.doe@gmail.com")
-    email_flag = validate_email(useremail)
-    userpassword = st.text_input("Password",placeholder="eg: Qu@314Pra#th",type="password")
-    password_flag = validate_password(userpassword)
-    if(useremail and if_user_exsits(useremail)):
-        button_text = "Login"
-    else:
-        button_text = "Sign Up"
-    col1,col2,col3 = st.columns([1,3.5,1])
-    with col1:
-        st.empty()
-    with col2:
-        button_flag = st.button(label=button_text)
-        # Dynamically toggle between "Create An Account" and "Login" titles based on user existence
-        if useremail and if_user_exsits(useremail):
-            # User exists, show Login title and hide Create An Account
-            st.markdown("""
-                <style>
-                    h1#create-an-account { display: none; }
-                    h1#login {
-                        display: block;
-                        animation: fade-in 0.5s ease;
-                    }
-                    @keyframes fade-in {
-                        from { opacity: 0; transform: translateY(15px);}
-                        to { opacity: 1; transform: translateY(0);}
-                    }
-                </style>
-            """, unsafe_allow_html=True)
-        else:
-            # User does not exist, show Create An Account and hide Login
-            st.markdown("""
-                <style>
-                    h1#login { display: none; }
-                    h1#create-an-account {
-                        display: block;
-                        animation: fade-in 0.5s ease;
-                    }
-                    @keyframes fade-in {
-                        from { opacity: 0; transform: translateY(20px);}
-                        to { opacity: 1; transform: translateY(0);}
-                    }
-                </style>
-            """, unsafe_allow_html=True)
-        #new user
-        if(name_flag and email_flag and password_flag):
-            st.markdown("""
-                <style>
-                    button.st-emotion-cache-1rwb540.e1e4lema2 {
-                        pointer-events: auto;
-                        transition: opacity 1s;
-                        opacity: 1;
-                    }
-                </style>
-            """,unsafe_allow_html=True)
-        else:
-            st.markdown("""
-                <style>
-                    button.st-emotion-cache-1rwb540.e1e4lema2 {
-                        pointer-events: none;
-                        transition: opacity 1s;
-                        opacity: 0;
-                    }
-                </style>
-            """,unsafe_allow_html=True)
-        user_data = {
-            "username":username,
-            "useremail":useremail,
-            "userpassword":userpassword,
+        /* Hide the orange loading progress bar */
+        div[data-testid="stDecoration"] {
+            display: none !important;
         }
-        if(button_text == "Sign Up" and button_flag):
-            user_serialization(user_data)
-    with col3:
-        already_a_user = st.button("Already a user ?",type="tertiary",key="Send to login")
-   
 
-sign_up_page()
+        /* Remove top padding to avoid white space */
+        .block-container {
+            padding-top: 0rem !important;
+        }
+    </style>
+"""
+
+heading = "<h1 id = 'create-a-account'>Create A Account</h1>"
+center_the_elements = """
+    <style>
+        #create-a-account{
+            text-align: center;
+        }
+        .stButton.st-emotion-cache-8atqhb.e1mlolmg0{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+"""
+
+fade_in_signup_form = """
+    <style>
+        h1#create-a-account,
+        .stElementContainer.st-key-signup_user_name,
+        .stElementContainer.st-key-signup_user_email,
+        .stElementContainer.st-key-signup_user_password,
+        .stElementContainer.st-key-signup_button,
+        .stElementContainer.st-key-already_user_button {
+            animation: fade_in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fade_in {
+            from {
+                opacity: 0;
+                transform: translateY(100px) scale(0.95);
+                pointer-events: none;
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                pointer-events: auto;
+            }
+        }
+    </style>
+"""
+
+def sign_up_form():
+    st.markdown(remove_header_footer,unsafe_allow_html=True)
+    st.markdown(fade_in_signup_form,unsafe_allow_html=True)
+    st.markdown(center_the_elements,unsafe_allow_html=True)
+    st.markdown(heading,unsafe_allow_html=True)
+    username = st.text_input("Name",placeholder="Jho Doe",key = "signup_user_name")
+    name_flag = validate_name(username)
+    useremail = st.text_input("Email",placeholder="Jho.Doe@gmail.com",key = "signup_user_email")
+    email_flag = validate_email(useremail)
+    userpassword = st.text_input("Password",placeholder="!hnfa@2343hgAn",key = "signup_user_password",type="password")
+    password_flag = validate_password(userpassword)
+   
+    empty_col,signup_btn_col,already_user_btn = st.columns([1,3,1])
+    with empty_col:
+        st.empty()
+    with signup_btn_col:
+        signup_btn = st.button("Sign Up",key = "signup_button",type="secondary")
+    with already_user_btn:
+        already_user = st.button("Already a user?",key = "already_user_button",type = "tertiary",on_click=handel_already_user)
