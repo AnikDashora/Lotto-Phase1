@@ -29,3 +29,9 @@ def to_signup_page():
 
 def to_login_page():
     st.session_state["page"] = "looto/auth/login_page"
+
+def make_user_exist_true():
+    st.session_state["user_exist"] = True
+
+def make_user_exist_False():
+    st.session_state["user_exist"] = False

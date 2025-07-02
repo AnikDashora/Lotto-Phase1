@@ -6,8 +6,9 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import handel_new_user
-
+from session_state.session_manager import handel_new_user,to_home_page,make_user_exist_true
+from services.data_validation.json_validator import validate_email
+from services.auth_service import if_user_exsits,verify_user,extract_user_id_using_email
 remove_header_footer = """
     <style>
         #MainMenu {visibility: hidden;}
@@ -80,13 +81,27 @@ def login_form():
     st.markdown(center_the_elements,unsafe_allow_html=True)
     st.markdown(heading,unsafe_allow_html=True)
 
-    useremail = st.text_input("Email",placeholder="Jho.Doe@gmail.com",key = "login_user_email")
-    userpassword = st.text_input("Password",placeholder="!hnfa@2343hgAn",type="password",key = "login_user_password")
+    useremail = st.text_input("Email",placeholder="Your Email",key = "login_user_email")
+    email_flag = validate_email(useremail)
+    userpassword = st.text_input("Password",placeholder="Your Password",type="password",key = "login_user_password")
     empty_col,login_btn_col,new_user_btn = st.columns([1,3,1])
     with empty_col:
         st.empty()
     with login_btn_col:
         login_btn = st.button("Login",type="secondary",key = "login_button")
     with new_user_btn:
-        new_user = st.button("New User?",type="tertiary",key = "new_user_button",on_click=handel_new_user)
-            
+        st.button("New User?",type="tertiary",key = "new_user_button",on_click=handel_new_user)
+    if(login_btn):
+        if(email_flag and useremail and if_user_exsits(useremail)):
+            if(userpassword):
+                if(verify_user(useremail,userpassword)):
+                    make_user_exist_true()
+                    st.session_state["user_id"] = extract_user_id_using_email(useremail)
+                    to_home_page()
+                    st.rerun()
+                else:
+                    st.error("Invalid Username or Password")
+            else:
+                st.error("Invalid Entries")
+        else:
+            st.error("User doesn't Exist")

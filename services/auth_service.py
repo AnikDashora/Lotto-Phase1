@@ -1,6 +1,5 @@
 import json
 import os
-import uuid
 
 USER_DATA_FILE = "D:\\Lotto-Phase1\\data\\users.json"
 
@@ -36,7 +35,7 @@ def generate_user_id():
 
 def user_serialization(user_data):
     user = {
-        "uid":generate_user_id(),
+        "user_id":generate_user_id(),
         "username":user_data["username"],
         "email":user_data["useremail"],
         "password" : encrypt_password(user_data["useremail"],user_data["userpassword"])
@@ -87,12 +86,14 @@ def if_user_exsits(user_email):
     emails = extract_user_email()
     return (user_email in emails)
 
-def verify_password(email,password):
+def verify_password(email, password):
     emails = extract_user_email()
     passwords = extract_password()
+    if email not in emails:
+        return False
     user_idx = emails.index(email)
-    return password == encrypt_password(email,passwords[user_idx])
-
+    # Encrypt the input password and compare with stored encrypted password
+    return encrypt_password(email, password) == passwords[user_idx]
 def encrypt_password(email,password):
     local,domain = email.split("@")
     del domain
@@ -110,3 +111,14 @@ def verify_user(email,password):
         return True
     else:
         return False
+
+def extract_user_name_by_uid(uid):
+    users = extract_user_name()
+    return users[int(uid[1:])-1]
+
+def extract_user_id_using_email(useremail):
+    users = extract_user_email()
+    user_idx = users.index(useremail)
+    users = user_deserialization()
+    return users[user_idx]["user_id"]
+
