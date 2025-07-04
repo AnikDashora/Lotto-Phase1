@@ -48,6 +48,7 @@ styles = """
             text-align:center;
             animation:fade_in_product_text 0.5s ease-in-out forwards;
         }
+        /*buttons*/
         .stButton.st-emotion-cache-8atqhb.e1mlolmg0{
             display: flex;
             justify-content: center;
@@ -61,6 +62,28 @@ styles = """
             color:white;
             border:1px solid #3137c5;
             animation:bring_in_button 1s ease-in-out forwards;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:active{
+            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);;
+            color:white;
+            border:1px solid #3137c5;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:focus:not(:active){
+            border:1px solid #3137c5;
+            color:white;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:focus-visible{
+            box-shadow:#3137c5 0px 0px 0px 0.2rem;
+        }
+        button.st-emotion-cache-2yl1y1.e1e4lema3:hover{
+            color:#3137c5;
+        }
+        button.st-emotion-cache-2yl1y1.e1e4lema3:active{
+            color:white;
+        }
+        button.st-emotion-cache-2yl1y1.e1e4lema3:focus-visible {
+            color: white;
+            box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 0px 0.2rem;
         }
         h3#product-description{
             text-align:center;
@@ -179,4 +202,4 @@ def product_page():
                             st.button(type="tertiary",label="",icon=":material/add:",on_click=add_to_cart)
                 st.button("Buy Now",type="secondary",key = "buy_now_button")
                     
-                
+              

@@ -1,0 +1,802 @@
+[
+    {
+        "product_id": "p0001",
+        "product_name": "Pet Supplies_1",
+        "product_price": 5915,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0002",
+        "product_name": "Footwear_2",
+        "product_price": 3071,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0003",
+        "product_name": "Toys & Games_3",
+        "product_price": 5849,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0004",
+        "product_name": "Clothing_4",
+        "product_price": 7851,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0005",
+        "product_name": "Health & Beauty_5",
+        "product_price": 8349,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0006",
+        "product_name": "Home & Kitchen_6",
+        "product_price": 5264,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0007",
+        "product_name": "Clothing_7",
+        "product_price": 8662,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0008",
+        "product_name": "Office Supplies_8",
+        "product_price": 1870,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0009",
+        "product_name": "Home & Kitchen_9",
+        "product_price": 2948,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0010",
+        "product_name": "Clothing_10",
+        "product_price": 7555,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0011",
+        "product_name": "Sports & Outdoors_11",
+        "product_price": 4367,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0012",
+        "product_name": "Toys & Games_12",
+        "product_price": 6341,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0013",
+        "product_name": "Books_13",
+        "product_price": 7851,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Books"
+    },
+    {
+        "product_id": "p0014",
+        "product_name": "Toys & Games_14",
+        "product_price": 2948,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0015",
+        "product_name": "Clothing_15",
+        "product_price": 2771,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0016",
+        "product_name": "Home & Kitchen_16",
+        "product_price": 931,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0017",
+        "product_name": "Electronics_17",
+        "product_price": 1161,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0018",
+        "product_name": "Sports & Outdoors_18",
+        "product_price": 4727,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0019",
+        "product_name": "Footwear_19",
+        "product_price": 3520,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0020",
+        "product_name": "Toys & Games_20",
+        "product_price": 3824,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0021",
+        "product_name": "Electronics_21",
+        "product_price": 4973,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0022",
+        "product_name": "Toys & Games_22",
+        "product_price": 6341,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0023",
+        "product_name": "Office Supplies_23",
+        "product_price": 4957,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0024",
+        "product_name": "Toys & Games_24",
+        "product_price": 6472,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0025",
+        "product_name": "Electronics_25",
+        "product_price": 1313,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0026",
+        "product_name": "Health & Beauty_26",
+        "product_price": 6321,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0027",
+        "product_name": "Health & Beauty_27",
+        "product_price": 4147,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0028",
+        "product_name": "Office Supplies_28",
+        "product_price": 1658,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0029",
+        "product_name": "Clothing_29",
+        "product_price": 4110,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0030",
+        "product_name": "Office Supplies_30",
+        "product_price": 5074,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0031",
+        "product_name": "Footwear_31",
+        "product_price": 3071,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0032",
+        "product_name": "Home & Kitchen_32",
+        "product_price": 4825,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0033",
+        "product_name": "Pet Supplies_33",
+        "product_price": 8662,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0034",
+        "product_name": "Toys & Games_34",
+        "product_price": 6409,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0035",
+        "product_name": "Sports & Outdoors_35",
+        "product_price": 1555,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0036",
+        "product_name": "Clothing_36",
+        "product_price": 2802,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0037",
+        "product_name": "Books_37",
+        "product_price": 6353,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Books"
+    },
+    {
+        "product_id": "p0038",
+        "product_name": "Electronics_38",
+        "product_price": 2939,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0039",
+        "product_name": "Clothing_39",
+        "product_price": 3356,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0040",
+        "product_name": "Pet Supplies_40",
+        "product_price": 5264,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0041",
+        "product_name": "Sports & Outdoors_41",
+        "product_price": 6082,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0042",
+        "product_name": "Electronics_42",
+        "product_price": 2884,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0043",
+        "product_name": "Toys & Games_43",
+        "product_price": 8640,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0044",
+        "product_name": "Sports & Outdoors_44",
+        "product_price": 2516,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0045",
+        "product_name": "Office Supplies_45",
+        "product_price": 6341,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0046",
+        "product_name": "Health & Beauty_46",
+        "product_price": 7284,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0047",
+        "product_name": "Health & Beauty_47",
+        "product_price": 7555,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0048",
+        "product_name": "Office Supplies_48",
+        "product_price": 3071,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0049",
+        "product_name": "Health & Beauty_49",
+        "product_price": 5862,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0050",
+        "product_name": "Toys & Games_50",
+        "product_price": 8534,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0051",
+        "product_name": "Sports & Outdoors_51",
+        "product_price": 7851,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0052",
+        "product_name": "Books_52",
+        "product_price": 7197,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Books"
+    },
+    {
+        "product_id": "p0053",
+        "product_name": "Office Supplies_53",
+        "product_price": 2358,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0054",
+        "product_name": "Pet Supplies_54",
+        "product_price": 5239,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0055",
+        "product_name": "Home & Kitchen_55",
+        "product_price": 3356,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0056",
+        "product_name": "Footwear_56",
+        "product_price": 7902,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0057",
+        "product_name": "Home & Kitchen_57",
+        "product_price": 8534,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0058",
+        "product_name": "Office Supplies_58",
+        "product_price": 7734,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0059",
+        "product_name": "Office Supplies_59",
+        "product_price": 7696,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0060",
+        "product_name": "Pet Supplies_60",
+        "product_price": 2460,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0061",
+        "product_name": "Books_61",
+        "product_price": 463,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Books"
+    },
+    {
+        "product_id": "p0062",
+        "product_name": "Pet Supplies_62",
+        "product_price": 707,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0063",
+        "product_name": "Sports & Outdoors_63",
+        "product_price": 2170,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0064",
+        "product_name": "Books_64",
+        "product_price": 5074,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Books"
+    },
+    {
+        "product_id": "p0065",
+        "product_name": "Office Supplies_65",
+        "product_price": 4626,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0066",
+        "product_name": "Electronics_66",
+        "product_price": 5239,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0067",
+        "product_name": "Home & Kitchen_67",
+        "product_price": 6903,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0068",
+        "product_name": "Office Supplies_68",
+        "product_price": 2358,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0069",
+        "product_name": "Books_69",
+        "product_price": 7572,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Books"
+    },
+    {
+        "product_id": "p0070",
+        "product_name": "Footwear_70",
+        "product_price": 1997,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0071",
+        "product_name": "Pet Supplies_71",
+        "product_price": 7548,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0072",
+        "product_name": "Electronics_72",
+        "product_price": 2939,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0073",
+        "product_name": "Toys & Games_73",
+        "product_price": 4966,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0074",
+        "product_name": "Home & Kitchen_74",
+        "product_price": 931,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0075",
+        "product_name": "Home & Kitchen_75",
+        "product_price": 1870,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0076",
+        "product_name": "Sports & Outdoors_76",
+        "product_price": 5879,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Sports & Outdoors"
+    },
+    {
+        "product_id": "p0077",
+        "product_name": "Electronics_77",
+        "product_price": 3071,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0078",
+        "product_name": "Electronics_78",
+        "product_price": 4147,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0079",
+        "product_name": "Pet Supplies_79",
+        "product_price": 7696,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0080",
+        "product_name": "Toys & Games_80",
+        "product_price": 1087,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0081",
+        "product_name": "Office Supplies_81",
+        "product_price": 4973,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0082",
+        "product_name": "Home & Kitchen_82",
+        "product_price": 4957,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0083",
+        "product_name": "Electronics_83",
+        "product_price": 2516,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Electronics"
+    },
+    {
+        "product_id": "p0084",
+        "product_name": "Home & Kitchen_84",
+        "product_price": 6321,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0085",
+        "product_name": "Health & Beauty_85",
+        "product_price": 463,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0086",
+        "product_name": "Office Supplies_86",
+        "product_price": 9561,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Office Supplies"
+    },
+    {
+        "product_id": "p0087",
+        "product_name": "Footwear_87",
+        "product_price": 2663,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0088",
+        "product_name": "Clothing_88",
+        "product_price": 3979,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    },
+    {
+        "product_id": "p0089",
+        "product_name": "Toys & Games_89",
+        "product_price": 3824,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0090",
+        "product_name": "Toys & Games_90",
+        "product_price": 7734,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Toys & Games"
+    },
+    {
+        "product_id": "p0091",
+        "product_name": "Footwear_91",
+        "product_price": 4983,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0092",
+        "product_name": "Footwear_92",
+        "product_price": 2841,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0093",
+        "product_name": "Footwear_93",
+        "product_price": 6353,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0094",
+        "product_name": "Home & Kitchen_94",
+        "product_price": 4147,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0095",
+        "product_name": "Home & Kitchen_95",
+        "product_price": 707,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Home & Kitchen"
+    },
+    {
+        "product_id": "p0096",
+        "product_name": "Footwear_96",
+        "product_price": 7902,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0097",
+        "product_name": "Pet Supplies_97",
+        "product_price": 6321,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Pet Supplies"
+    },
+    {
+        "product_id": "p0098",
+        "product_name": "Health & Beauty_98",
+        "product_price": 1161,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Health & Beauty"
+    },
+    {
+        "product_id": "p0099",
+        "product_name": "Footwear_99",
+        "product_price": 6082,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Footwear"
+    },
+    {
+        "product_id": "p0100",
+        "product_name": "Clothing_100",
+        "product_price": 2939,
+        "product_image": "https://placehold.co/150x130?text=Product",
+        "product_description": "A high-quality, reliable product designed to meet your everyday needs with ease, durability, and versatile functionality",
+        "product_category": "Clothing"
+    }
+]

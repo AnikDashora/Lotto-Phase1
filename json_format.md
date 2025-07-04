@@ -22,11 +22,11 @@ This document outlines the structure and expected data types for all JSON files 
 ```json
 {
   "product_id": "pid",             // string: unique product identifier
-  "name": "product_name",          // string: name of product
-  "price": 0,                      // number: current price
-  "image": "product_image.png",    // string: image filename or URL
-  "description": "product_description", // string: product summary
-  "category": "category_name"      // string: product's category
+  "product_name": "product_name",          // string: name of product
+  "product_price": 0,                      // number: current price
+  "product_image": "product_image.png",    // string: image filename or URL
+  "product_description": "product_description", // string: product summary
+  "product_category": "category_name"      // string: product's category
 }
 ```
 

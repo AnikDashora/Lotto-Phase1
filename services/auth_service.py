@@ -1,5 +1,6 @@
 import json
 import os
+import random
 
 USER_DATA_FILE = "D:\\Lotto-Phase1\\data\\users.json"
 
@@ -121,4 +122,7 @@ def extract_user_id_using_email(useremail):
     user_idx = users.index(useremail)
     users = user_deserialization()
     return users[user_idx]["user_id"]
+
+def extract_user_ids():
+    return [user["user_id"] for user in user_deserialization()]
 
