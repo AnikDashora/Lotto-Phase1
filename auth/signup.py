@@ -4,10 +4,11 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import to_home_page,handel_already_a_user,save_user_state,user_exist,save_user_cart_item_state
+from session_state.session_manager import to_home_page,handel_already_a_user,save_user_state,user_exist,save_user_cart_item_state,save_user_orders_state
 from services.data_validation.json_validator import validate_email,validate_name,validate_password
 from services.auth_service import if_user_exsits,user_serialization,extract_user_id_using_email
 from services.cart_service import create_user_cart,read_user_cart
+from services.ordering_service import create_user_orders,read_user_order
 
 remove_header_footer = """
     <style>
@@ -98,8 +99,10 @@ def sign_up_form():
                 user_exist()
                 create_user_cart(st.session_state["user_id"])
                 save_user_cart_item_state(read_user_cart(st.session_state["user_id"])["cart_items"])
-                # to_home_page()
-                # st.rerun()
+                create_user_orders(st.session_state["user_id"])
+                save_user_orders_state(read_user_order(st.session_state["user_id"])["orders"])
+                to_home_page()
+                st.rerun()
             else:
                 st.error("User already exist")
         else:

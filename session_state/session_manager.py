@@ -46,7 +46,9 @@ def initialize_session_states():
     
 
 def to_home_page():
-    if((st.session_state["pages"][st.session_state["page_index"]] == 6) or (st.session_state["pages"][st.session_state["page_index"]] == 7)):
+    if((st.session_state["pages"][st.session_state["page_index"]] == 6)
+        or 
+        (st.session_state["pages"][st.session_state["page_index"]] == 7)):
         st.session_state["pages"].pop()
         st.session_state["page_index"] -= 1
     else:
@@ -70,6 +72,9 @@ def save_user_state(useremail):
 
 def save_user_cart_item_state(user_cart_items):
     st.session_state["user_cart_item"] = user_cart_items
+
+def save_user_orders_state(user_orders):
+    st.session_state["user_order"] = user_orders
 
 def user_exist():
     st.session_state["user_exist"] = True
