@@ -5,15 +5,7 @@ import streamlit as st
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-
-from session_state.session_manager import to_signup_page,to_product_page
-from services.auth_service import extract_user_name_by_uid
-
-def user_check():
-    if(not(st.session_state["user_exist"])):
-        to_signup_page()
-    else:
-        pass
+from session_state.session_manager import to_signup_page
 
 remove_header_footer = """
     <style>
@@ -194,8 +186,8 @@ def home_page():
         with other_col:
             user_col,cart_col,orders_col = st.columns(3)
             with user_col:
-                user_label = extract_user_name_by_uid(st.session_state["user_id"]) if st.session_state["user_exist"] else "SignUp/Login"
-                st.button(label = user_label,key = "signup\login_button",type="tertiary",on_click=user_check)
+                user_label = "SignUp/Login"
+                st.button(label = user_label,key = "signup\login_button",type="tertiary",on_click=to_signup_page)
             with cart_col:
                 st.button(label = "CART",key = "cart_button",type="tertiary")
             with orders_col:
@@ -219,7 +211,7 @@ def home_page():
                     st.markdown("<br>",unsafe_allow_html=True)
                     st.markdown(f"**Product Name {idx+1}**")
                     st.markdown("<br>",unsafe_allow_html=True)
-                    st.button(label="View Product", key=f"product_view_button{idx+1}", type="secondary",on_click=to_product_page)
+                    st.button(label="View Product", key=f"product_view_button{idx+1}", type="secondary")
                     st.markdown("<br>",unsafe_allow_html=True)
                     add_to_cart_col, buy_now_col = st.columns(2)
                     with add_to_cart_col:

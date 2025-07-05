@@ -6,7 +6,7 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import handel_new_user,to_home_page,make_user_exist_true
+from session_state.session_manager import to_home_page,handel_new_user
 from services.data_validation.json_validator import validate_email
 from services.auth_service import if_user_exsits,verify_user,extract_user_id_using_email
 remove_header_footer = """
@@ -95,8 +95,6 @@ def login_form():
         if(email_flag and useremail and if_user_exsits(useremail)):
             if(userpassword):
                 if(verify_user(useremail,userpassword)):
-                    make_user_exist_true()
-                    st.session_state["user_id"] = extract_user_id_using_email(useremail)
                     to_home_page()
                     st.rerun()
                 else:

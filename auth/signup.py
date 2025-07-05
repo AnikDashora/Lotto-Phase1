@@ -4,10 +4,10 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import handel_already_user,to_home_page,make_user_exist_true
+from session_state.session_manager import to_home_page,handel_already_a_user,save_user_state,user_exist,save_user_cart_item_state
 from services.data_validation.json_validator import validate_email,validate_name,validate_password
 from services.auth_service import if_user_exsits,user_serialization,extract_user_id_using_email
-
+from services.cart_service import create_user_cart,read_user_cart
 
 remove_header_footer = """
     <style>
@@ -85,7 +85,7 @@ def sign_up_form():
     with signup_btn_col:
         signup_btn = st.button("Sign Up",key = "signup_button",type="secondary")
     with already_user_btn:
-        st.button("Already a user?",key = "already_user_button",type = "tertiary",on_click=handel_already_user)
+        st.button("Already a user?",key = "already_user_button",type = "tertiary",on_click=handel_already_a_user)
     if(signup_btn):
         if((validate_email and validate_name and validate_password)and(useremail and username and userpassword)):
             if(not(if_user_exsits(useremail))):
@@ -94,10 +94,12 @@ def sign_up_form():
                     "useremail":useremail,
                     "userpassword":userpassword
                 })
-                make_user_exist_true()
-                st.session_state["user_id"] = extract_user_id_using_email(useremail)
-                to_home_page()
-                st.rerun()
+                save_user_state(useremail)
+                user_exist()
+                st.success(f"{st.session_state["user_id"]}\n{st.session_state["user_email"]}\n{st.session_state["user_name"]}")
+                create_user_cart(st.session_state["user_id"])
+                # to_home_page()
+                # st.rerun()
             else:
                 st.error("User already exist")
         else:

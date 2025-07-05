@@ -6,7 +6,7 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import *
+from session_state.session_manager import to_home_page
 def landing_page():
     st.markdown(
         """
