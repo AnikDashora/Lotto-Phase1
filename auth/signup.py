@@ -96,8 +96,8 @@ def sign_up_form():
                 })
                 save_user_state(useremail)
                 user_exist()
-                st.success(f"{st.session_state["user_id"]}\n{st.session_state["user_email"]}\n{st.session_state["user_name"]}")
                 create_user_cart(st.session_state["user_id"])
+                save_user_cart_item_state(read_user_cart(st.session_state["user_id"])["cart_items"])
                 # to_home_page()
                 # st.rerun()
             else:

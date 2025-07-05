@@ -31,14 +31,16 @@ def create_user_cart(user_id):
         "user_id":user_id,
         "cart_items":[]
     }
-    carts = read_user_cart()
+    carts = reading_cart_file()
     carts.append(user_cart)
     writing_cart_file(carts)
 
 def read_user_cart(user_id):#this will return a dictnaory of user_id and cart_items
     carts = reading_cart_file()
+    if(len(carts) == 0):
+        return None
     user_index = int(user_id[1:])-1
-    return carts(user_index) 
+    return carts[user_index] 
 
 
 
