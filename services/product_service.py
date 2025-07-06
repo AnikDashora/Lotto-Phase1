@@ -80,8 +80,7 @@ def product_id_for_home():#return the product ids to display at home page
     random.shuffle(product_ids)
     return product_ids[:50]
     
-def extract_product_by_id(product_id):#return product info in dict by pids
-    products = product_deserialization()
+def extract_product_by_id(product_id,products):#return product info in dict by pids
     product_idx = int(product_id[1:])-1
     return products[product_idx]
 
@@ -96,7 +95,7 @@ def categories_deserialization():#return the dict of the categories
         categories = []
     return categories
 
-def categories_for_home_page():#return the categories in string for home page display 
+def categories_for_home_page():#return the categories(name) in string for home page display 
     categories = list(categories_deserialization().keys())
     return categories[0:10]
 

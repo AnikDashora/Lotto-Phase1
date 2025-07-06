@@ -35,6 +35,9 @@ def initialize_session_states():
     if("user_email" not in st.session_state):
         st.session_state["user_email"] = None
     
+    if("all_products" not in st.session_state):#this is for fast reterivatl of data
+        st.session_state["all_products"] = None
+
     if("products_ids" not in st.session_state):#stores product ids for home page
         st.session_state["products_ids"] = None
     
@@ -84,6 +87,15 @@ def save_user_orders_state(user_orders):#saves the list orders of the user has m
 
 def save_view_product_id(product_id):#saves the pid of the product after clicking on the view product
     st.session_state["view_product_id"] = product_id
+
+def save_categories(categories):#saves the name of the categories args_type -> list of str (categories names)
+    st.session_state["categories"] = categories
+
+def save_products(products):#saves the ids of the products args_type -> list of str (products ids)
+    st.session_state["products_ids"] = products
+
+def save_all_products(products):
+    st.session_state["all_products"] = products
 
 def user_exist():
     st.session_state["user_exist"] = True
