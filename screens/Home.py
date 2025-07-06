@@ -5,7 +5,6 @@ import streamlit as st
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import to_signup_page
 
 remove_header_footer = """
     <style>
