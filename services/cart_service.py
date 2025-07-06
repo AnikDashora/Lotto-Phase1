@@ -35,12 +35,43 @@ def create_user_cart(user_id):
     carts.append(user_cart)
     writing_cart_file(carts)
 
-def read_user_cart(user_id):#this will return a dictnaory of user_id and cart_items
+def read_user_cart(user_id):#this will return the list of cart_items according to the user id 
     carts = reading_cart_file()
     if(len(carts) == 0):
         return None
     user_index = int(user_id[1:])-1
-    return carts[user_index] 
+    return carts[user_index]["cart_items"] 
+
+def find_product_quantity_in_user_cart(product_id,user_cart_state):#args -> pid,session state of user cart
+    """finds the item in cart and return index and
+        if the item in not in the then it means the
+        product has zero qty and doesnt exist in cart"""
+    for item in range(len(user_cart_state)):
+        if(user_cart_state[item]["product_id"] == product_id):
+            return item
+    return None
+
+def add_to_cart(product_id,user_cart_state):#this is add to cart button function args -> pid,session state of user cart
+    product = {
+        "product_id": product_id,
+        "quantity": 1
+    }
+    user_cart_state.append(product)
+
+def increase_quantity_in_cart(product_id,user_cart_state):#incresr the quantity of the cart item args -> pid,session state of user cart
+    product_index = find_product_quantity_in_user_cart(product_id,user_cart_state)
+    user_cart_state[product_index]["quantity"] += 1
+
+def decrease_quantity_in_cart(product_id,user_cart_state):#decrease the quantity of the cart item args -> pid,session state of user cart
+    product_index = find_product_quantity_in_user_cart(product_id,user_cart_state)
+    if(user_cart_state[product_index]["quantity"] <= 1):
+        user_cart_state.pop(product_index)
+    else:
+        user_cart_state[product_index]["quantity"] -= 1
+
+def remove_from_cart(product_id,user_cart_state):#remove the item from the cart args -> pid,session state of user cart
+    product_index = find_product_quantity_in_user_cart(product_id,user_cart_state)
+    user_cart_state.pop(product_index)
 
 
 

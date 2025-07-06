@@ -35,13 +35,19 @@ def initialize_session_states():
     if("user_email" not in st.session_state):
         st.session_state["user_email"] = None
     
-    if("products" not in st.session_state):
-        st.session_state["products"] = None
+    if("products_ids" not in st.session_state):#stores product ids for home page
+        st.session_state["products_ids"] = None
+    
+    if("view_product_id" not in st.session_state):#stores the pid the product for the view in the product page
+        st.session_state["view_product_id"] = None
 
-    if("user_cart_item" not in st.session_state):
+    if("categories" not in st.session_state):#store name of the "categories" for home page
+        st.session_state["categories"] = None
+
+    if("user_cart_item" not in st.session_state):#stoes the list of dict that has pid and qty of the user cart
         st.session_state["user_cart_item"] =None
 
-    if("user_order" not in st.session_state):
+    if("user_order" not in st.session_state):#stores the list of the orders user has made
         st.session_state["user_order"] = None
     
 
@@ -70,14 +76,18 @@ def save_user_state(useremail):
     st.session_state["user_email"] = useremail
     st.session_state["user_name"] = extract_user_name_by_uid(st.session_state["user_id"])
 
-def save_user_cart_item_state(user_cart_items):
+def save_user_cart_item_state(user_cart_items):#saves the list of the carts user has have the pids and qtys of products
     st.session_state["user_cart_item"] = user_cart_items
 
-def save_user_orders_state(user_orders):
+def save_user_orders_state(user_orders):#saves the list orders of the user has made with there price and status
     st.session_state["user_order"] = user_orders
+
+def save_view_product_id(product_id):#saves the pid of the product after clicking on the view product
+    st.session_state["view_product_id"] = product_id
 
 def user_exist():
     st.session_state["user_exist"] = True
 
 def user_doesnt_exist():
     st.session_state["user_exist"] = False
+

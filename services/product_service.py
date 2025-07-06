@@ -72,14 +72,34 @@ def product_deserialization():
         products = []
     return products
 
-def extract_product_ids():
+def extract_product_ids():# return all the product ids in data file
     return [product["product_id"] for product in product_deserialization()]
 
-
-
-
-
-
-
-
+def product_id_for_home():#return the product ids to display at home page
+    product_ids = extract_product_ids()
+    random.shuffle(product_ids)
+    return product_ids[:50]
     
+def extract_product_by_id(product_id):#return product info in dict by pids
+    products = product_deserialization()
+    product_idx = int(product_id[1:])-1
+    return products[product_idx]
+
+def categories_deserialization():#return the dict of the categories
+    if(not(check_file_exist())):
+        raise FileNotFoundError(f"Product data file '{CATEGORIES_DATA_FILE}' does not exist.")
+    
+    try:
+        with open(CATEGORIES_DATA_FILE,"r") as file:
+            categories = json.load(file)
+    except (json.JSONDecodeError,FileNotFoundError) as e:
+        categories = []
+    return categories
+
+def categories_for_home_page():#return the categories in string for home page display 
+    categories = list(categories_deserialization().keys())
+    return categories[0:10]
+
+def extract_product_id_by_categories(categories):#return the list of products ids under the categories
+    return categories_deserialization()[categories]  
+

@@ -34,11 +34,11 @@ def create_user_orders(user_id):
     orders.append(user_order)
     writing_cart_file(orders)
 
-def read_user_order(user_id):#this will return a dictory have userid and list of all the orders user made
+def read_user_order(user_id):#this will return a list of all the orders user made
     orders = reading_orders_file()
     user_index = int(user_id[1:])-1
     if(len(orders) == 0):
         return None
-    return orders[user_index]
+    return orders[user_index]["orders"]
 
 
