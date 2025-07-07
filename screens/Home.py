@@ -43,7 +43,7 @@ navigation_bar_styles = """
         .stVerticalBlock.st-key-navigation_bar_section.st-emotion-cache-gsx7k2.eertqu03{
             padding:10px 10px 5px 10px;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
             background-image: linear-gradient(to bottom, #23278D, #121C7B);
             color:white;
         }
@@ -130,7 +130,6 @@ category_bar_styles = """
         }
         .stColumn.st-emotion-cache-1spjr6t.eertqu01{
             width:100%;
-            transition: width 1s cubic-bezier(0.4,0,0.2,1);
         }
     </style>
 """
@@ -138,19 +137,19 @@ category_bar_styles = """
 product_section_styles = """
     <style>
         .stVerticalBlock.st-key-product_section.st-emotion-cache-gsx7k2.eertqu03{
-            padding:1rem;
+            padding:10px;
         }
         button.st-emotion-cache-1rwb540.e1e4lema2{
             width:100%;
-            border-radius:50px;
+            border-radius:40px;
         }
         button.st-emotion-cache-1rwb540.e1e4lema2:hover{
-            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);;
+            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);
             color:white;
             border:1px solid #3137c5;
         }
         button.st-emotion-cache-1rwb540.e1e4lema2:active{
-            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);;
+            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);
             color:white;
             border:1px solid #3137c5;
         }
@@ -159,7 +158,24 @@ product_section_styles = """
             color:#3137c5;
         }
         button.st-emotion-cache-1rwb540.e1e4lema2:focus-visible{
-            box-shadow:#3137c5 0px 0px 0px 0.2rem;
+            box-shadow:#3137c5 0px 0px 0px 0.16rem;
+        }
+        [class*="st-key-item_box_"] {
+            padding: 12px 8px 10px 8px;
+            margin: 8px 4px 12px 4px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: 
+                box-shadow 0.5s cubic-bezier(0.4,0,0.2,1),
+                background 0.5s cubic-bezier(0.4,0,0.2,1),
+                transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        [class*="st-key-item_box_"]:hover {
+            box-shadow: 0 8px 24px 0 rgba(35,39,141,0.18), 0 2px 6px 0 rgba(35,39,141,0.10);
+            transform: translateY(-8px) scale(1.03);
+            cursor: pointer;
+            background: #f4f6ff;
         }
     </style>
 """
@@ -238,7 +254,7 @@ def home_page():
         for item in range(products):
             col = item_cols[item % num_columns]
             with col:
-                with st.container(key = f"item_box_{item}"):
+                with st.container(key = f"item_box_{item+1}"):
                     product_id = st.session_state["products_ids"][item]
                     user_product_quantity_index = find_product_quantity_in_user_cart(
                         product_id,
