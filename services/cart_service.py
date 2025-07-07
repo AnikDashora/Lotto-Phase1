@@ -46,11 +46,14 @@ def find_product_quantity_in_user_cart(product_id,user_cart_state):#args -> pid,
     """finds the item in cart and return index and
         if the item in not in the then it means the
         product has zero qty and doesnt exist in cart"""
+    if(user_cart_state is None):
+        return None
     for item in range(len(user_cart_state)):
         if(user_cart_state[item]["product_id"] == product_id):
             return item
     return None
-
+def find_the_quantity_of_product_in_cart(product_index,user_cart_state):
+    return user_cart_state[product_index]["quantity"]
 def add_to_cart(product_id,user_cart_state):#this is add to cart button function args -> pid,session state of user cart
     product = {
         "product_id": product_id,

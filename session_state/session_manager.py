@@ -56,8 +56,7 @@ def initialize_session_states():
 
 def to_home_page():
     if((st.session_state["pages"][st.session_state["page_index"]] == 6)
-        or 
-        (st.session_state["pages"][st.session_state["page_index"]] == 7)):
+        or (st.session_state["pages"][st.session_state["page_index"]] == 7)):
         st.session_state["pages"].pop()
         st.session_state["page_index"] -= 1
     else:

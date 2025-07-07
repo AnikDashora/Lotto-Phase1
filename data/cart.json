@@ -2,5 +2,13 @@
     {
         "user_id": "u0001",
         "cart_items": []
+    },
+    {
+        "user_id": "u0002",
+        "cart_items": []
+    },
+    {
+        "user_id": "u0003",
+        "cart_items": []
     }
 ]

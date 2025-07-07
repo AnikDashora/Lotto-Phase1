@@ -100,10 +100,9 @@ def sign_up_form():
                 create_user_cart(st.session_state["user_id"])#makes a empty user cart
                 save_user_cart_item_state(read_user_cart(st.session_state["user_id"]))#saves the list of the cart items
                 create_user_orders(st.session_state["user_id"])#creates a empty orders in data file
-                save_user_orders_state(read_user_order(st.session_state["user_id"])["orders"])#saves the 
-                st.success(read_user_cart(st.session_state["user_id"]))
-                # to_home_page()
-                # st.rerun()
+                save_user_orders_state(read_user_order(st.session_state["user_id"]))#saves the 
+                to_home_page()
+                st.rerun()
             else:
                 st.error("User already exist")
         else:
