@@ -98,8 +98,8 @@ def login_form():
             if(userpassword):
                 if(verify_user(useremail,userpassword)):
                     save_user_state(useremail)
-                    save_user_cart_item_state(read_user_cart(st.session_state["user_id"])["cart_items"])
-                    save_user_orders_state(read_user_order(st.session_state["user_id"])["orders"])
+                    save_user_cart_item_state(read_user_cart(st.session_state["user_id"]))
+                    save_user_orders_state(read_user_order(st.session_state["user_id"]))
                     user_exist()
                     to_home_page()
                     st.rerun()

@@ -6,6 +6,7 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
 from services.auth_service import extract_user_id_using_email,extract_user_name_by_uid
+from services.product_service import categories_deserialization
 
 PAGES = ("looto/screens/landing_page",#0
          "looto/screens/home_page",#1
@@ -90,6 +91,9 @@ def save_view_product_id(product_id):#saves the pid of the product after clickin
 def save_categories(categories):#saves the name of the categories args_type -> list of str (categories names)
     st.session_state["categories"] = categories
 
+def save_categories_navigation(categories):#saves the categories in the product ids for home and change the home page accordingly args-> string (categoirs name)
+    st.session_state["products_ids"] = categories_deserialization()[categories]
+
 def save_products(products):#saves the ids of the products args_type -> list of str (products ids)
     st.session_state["products_ids"] = products
 
@@ -102,3 +106,8 @@ def user_exist():
 def user_doesnt_exist():
     st.session_state["user_exist"] = False
 
+def check_user_exist():
+    return st.session_state["user_exist"]
+
+def give_user_name():
+    return  st.session_state["user_name"]

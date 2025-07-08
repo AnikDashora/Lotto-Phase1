@@ -6,7 +6,8 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import to_home_page
+from session_state.session_manager import to_home_page,save_all_products,save_categories,save_products
+from services.product_service import categories_for_home_page,product_id_for_home,product_deserialization
 def landing_page():
     st.markdown(
         """
@@ -66,4 +67,11 @@ def landing_page():
     st.header("Welcome to LOTTO")
     tag_line = "Ab nahi loge tho kab....."
     st.subheader(tag_line)
-    st.button("Let's start",on_click=to_home_page)
+    lets_start = st.button("Let's start")
+    if(lets_start):
+        save_categories(categories_for_home_page())
+        save_products(product_id_for_home())
+        save_all_products(product_deserialization())
+        to_home_page()
+        st.rerun()
+    
