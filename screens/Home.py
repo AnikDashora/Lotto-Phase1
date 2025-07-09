@@ -9,6 +9,18 @@ from services.product_service import extract_product_by_id
 from session_state.session_manager import to_signup_page,save_categories_navigation,check_user_exist,give_user_name
 from services.cart_service import find_product_quantity_in_user_cart,find_the_quantity_of_product_in_cart,add_to_cart,increase_quantity_in_cart,decrease_quantity_in_cart
 
+def check_add_to_cart(product_id):
+    if(check_user_exist() == True):
+        add_to_cart(
+            st.session_state["user_id"],
+            product_id,
+            st.session_state["user_cart_item"]
+        )
+    else:
+        st.session_state["pending_cart_item"] = product_id
+        to_signup_page()
+
+
 remove_header_footer = """
     <style>
         #MainMenu {visibility: hidden;}
@@ -337,8 +349,8 @@ def home_page():
                                     label="Add to Cart",
                                     key=f"add_to_cart_{product_id}",
                                     type="secondary",
-                                    on_click=add_to_cart,
-                                    args=(st.session_state["user_id"], product_id, st.session_state["user_cart_item"],)
+                                    on_click=check_add_to_cart,
+                                    args=(product_id,)
                                 )
                             else:
                                 with st.container(key=f"add_to_cart_qty_{product_id}"):

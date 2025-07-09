@@ -2,7 +2,7 @@ import json
 import os
 import sys
 import random
-
+import streamlit as st
 CART_DATA_FILE = "D:\\Lotto-Phase1\\data\\cart.json"
 
 def check_file_exist():

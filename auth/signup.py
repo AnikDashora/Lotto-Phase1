@@ -4,10 +4,10 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import to_home_page,handel_already_a_user,save_user_state,user_exist,save_user_cart_item_state,save_user_orders_state
+from session_state.session_manager import to_home_page,handel_already_a_user,save_user_state,user_exist,save_user_cart_item_state,save_user_orders_state,go_to_last_page
 from services.data_validation.json_validator import validate_email,validate_name,validate_password
 from services.auth_service import if_user_exsits,user_serialization,extract_user_id_using_email
-from services.cart_service import create_user_cart,read_user_cart
+from services.cart_service import create_user_cart,read_user_cart,add_to_cart
 from services.ordering_service import create_user_orders,read_user_order
 
 remove_header_footer = """
@@ -73,6 +73,7 @@ def sign_up_form():
     st.markdown(fade_in_signup_form,unsafe_allow_html=True)
     st.markdown(center_the_elements,unsafe_allow_html=True)
     st.markdown(heading,unsafe_allow_html=True)
+    st.write(st.session_state["pending_cart_item"])
     username = st.text_input("Name",placeholder="Jho Doe",key = "signup_user_name")
     name_flag = validate_name(username)
     useremail = st.text_input("Email",placeholder="Jho.Doe@gmail.com",key = "signup_user_email")
@@ -101,7 +102,14 @@ def sign_up_form():
                 save_user_cart_item_state(read_user_cart(st.session_state["user_id"]))#saves the list of the cart items
                 create_user_orders(st.session_state["user_id"])#creates a empty orders in data file
                 save_user_orders_state(read_user_order(st.session_state["user_id"]))#saves the 
-                to_home_page()
+                if(st.session_state["pending_cart_item"] is not None):
+                    add_to_cart(
+                        st.session_state["user_id"],
+                        st.session_state["pending_cart_item"],
+                        st.session_state["user_cart_item"]
+                    )
+                    st.session_state["pending_cart_item"] = None
+                go_to_last_page()
                 st.rerun()
             else:
                 st.error("User already exist")

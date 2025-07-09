@@ -50,9 +50,15 @@ def initialize_session_states():
 
     if("user_cart_item" not in st.session_state):#stoes the list of dict that has pid and qty of the user cart
         st.session_state["user_cart_item"] =None
+    
+    if("pending_cart_item" is not st.session_state):#stores the item(product_id) if user clicks on add to cart and have not signed in
+        st.session_state["pending_cart_item"] = None
 
     if("user_order" not in st.session_state):#stores the list of the orders user has made
         st.session_state["user_order"] = None
+    
+    if("pending_order_item" is not st.session_state):#stores the item if user clicks on Buy now and have not signed in
+        st.session_state["pending_order_item"] = None
     
 
 def to_home_page():
@@ -63,6 +69,14 @@ def to_home_page():
     else:
         st.session_state["pages"].append(1)
         st.session_state["page_index"] += 1
+
+def go_to_last_page():
+    if(not(st.session_state["pages"][st.session_state["page_index"]] == 0)
+        or
+        (st.session_state["pages"][st.session_state["page_index"]] == 1)):
+        st.session_state["pages"].pop()
+        st.session_state["page_index"] -= 1
+
 
 def to_signup_page():
     st.session_state["pages"].append(6)
