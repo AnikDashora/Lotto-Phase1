@@ -234,12 +234,25 @@ add_to_cart_sub_button_styles = """
     <style>
         .stVerticalBlock.st-key-add_to_cart_qty.st-emotion-cache-gsx7k2.eertqu03{
             width: 70%;
-            padding:0.2rem;
             display: flex;
             justify-self: anchor-center;
             border: 1px solid black;
-            border-radius: 50px;
+            border-radius: 40px;
             align-content: stretch;
+        }
+        .stElementContainer.element-container.st-key-inc_cart.st-emotion-cache-r6om3p.eertqu00{
+            background-image: linear-gradient(to bottom, #4a50c7, #23278D);
+            border-radius: 0px 40px 40px 0px;
+            background-size: inherit;
+            padding: 0.2rem;
+            color:white;
+        }
+        .stElementContainer.element-container.st-key-dec_cart.st-emotion-cache-r6om3p.eertqu00{
+            background-image: linear-gradient(to bottom, #4a50c7, #23278D);
+            border-radius: 40px 0px 0px 40px;
+            background-size: inherit;
+            padding: 0.2rem;
+            color:white;
         }
     </style>
 """
@@ -252,9 +265,10 @@ page_animation = """
         img#product_image{
             animation:image_animation 1s ease-in-out forwards;
         }
-        button.st-emotion-cache-1rwb540.e1e4lema2{
+        button.st-emotion-cache-1rwb540.e1e4lema2,.stVerticalBlock.st-key-add_to_cart_qty.st-emotion-cache-gsx7k2.eertqu03{
             animation:button_animation 1s ease-in-out forwards; 
         }
+
 
         @keyframes image_animation{
             from{
@@ -335,6 +349,7 @@ def product_page():
                     help = user_help,
                     type="tertiary",
                     key = "user_button",
+                    on_click=to_signup_page
                 )
     product_id = st.session_state["view_product_id"]
     product_info = extract_product_by_id(product_id,st.session_state["all_products"])

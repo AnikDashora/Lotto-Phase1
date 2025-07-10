@@ -1,0 +1,15 @@
+[
+    {
+        "user_id": "u0001",
+        "cart_items": []
+    },
+    {
+        "user_id": "u0002",
+        "cart_items": [
+            {
+                "product_id": "p0001",
+                "quantity": 1
+            }
+        ]
+    }
+]
