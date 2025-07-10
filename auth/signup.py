@@ -73,7 +73,7 @@ def sign_up_form():
     st.markdown(fade_in_signup_form,unsafe_allow_html=True)
     st.markdown(center_the_elements,unsafe_allow_html=True)
     st.markdown(heading,unsafe_allow_html=True)
-    st.write(st.session_state["pending_cart_item"])
+    
     username = st.text_input("Name",placeholder="Jho Doe",key = "signup_user_name")
     name_flag = validate_name(username)
     useremail = st.text_input("Email",placeholder="Jho.Doe@gmail.com",key = "signup_user_email")

@@ -1,10 +1,24 @@
 import streamlit as st
-import os
 import sys
+import os
 
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
-from session_state.session_manager import to_home_page,add_to_cart,remove_from_cart
+
+from session_state.session_manager import check_user_exist,give_user_name,go_to_last_page,to_signup_page
+from services.cart_service import find_product_quantity_in_user_cart,find_the_quantity_of_product_in_cart,add_to_cart,increase_quantity_in_cart,decrease_quantity_in_cart
+from services.product_service import extract_product_by_id
+
+def check_add_to_cart(product_id):
+    if(check_user_exist() == True):
+        add_to_cart(
+            st.session_state["user_id"],
+            product_id,
+            st.session_state["user_cart_item"]
+        )
+    else:
+        st.session_state["pending_cart_item"] = product_id
+        to_signup_page()
 
 remove_header_footer = """
     <style>
@@ -24,182 +38,374 @@ remove_header_footer = """
     </style>
 """
 
-styles = """
+navigation_bar_styles = """
     <style>
-        .stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e1cbzgzq4{
+    *{
+        padding:0px;
+        margin:0px;
+    }
+        section > .stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e1cbzgzq4:first-child{
+            padding:0 !important;
             max-width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .stVerticalBlock.st-key-navigation_bar_section.st-emotion-cache-gsx7k2.eertqu03{
+            padding:10px;
+            display: flex;
+            justify-content: space-around;
+            background-image: linear-gradient(to bottom, #23278D, #121C7B);
+            color:white;
+        }
+        /*this is img part*/
+        .st-emotion-cache-8atqhb.e1q5ojhd0{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .stVerticalBlock.st-emotion-cache-gsx7k2.eertqu03{
-            gap:0px;
-        }
-        img{
-            height:500px;
-            animation:fade_in_img 0.5s ease-in-out;
-        }
-        .stColumn.st-emotion-cache-ss04kk.eertqu01{
+            gap:0;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
+        }
+        .stTooltipIcon.st-emotion-cache-oj1fi.e1pw9gww0{
+            display: flex;
+            -webkit-box-align: center;
             align-items: center;
-            align-content: space-between;
-            flex-direction: row;
+            margin-top: 0px;
+            justify-content: center;
+        }
+        p{
+            text-align:center;
+        }
+        .st-ae.st-af.st-ag.st-ah.st-ai.st-aj.st-ak.st-al.st-am.st-an.st-ao.st-ap.st-aq.st-ar.st-as.st-at.st-au.st-av.st-aw.st-ax.st-ay.st-az.st-b0.st-b1.st-b2.st-b3.st-b4.st-b5.st-b6.st-b7.st-b8.st-b9.st-ba {
+            height:40px;
+        }
+        
+        .stHorizontalBlock.st-emotion-cache-ajtf3x.eertqu03 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
         }
-        h1{
-            text-align:center;
-            animation:fade_in_product_text 0.5s ease-in-out forwards;
-        }
-        /*buttons*/
-        .stButton.st-emotion-cache-8atqhb.e1mlolmg0{
+        .stColumn.st-emotion-cache-3u1gzc.eertqu01{
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: border 0.5s cubic-bezier(0.4,0,0.2,1),
+              border-radius 0.5s cubic-bezier(0.4,0,0.2,1),
+              background-color 0.5s cubic-bezier(0.4,0,0.2,1);
             
         }
-        button.st-emotion-cache-1rwb540.e1e4lema2{
-            border-radius:50px;
-            margin:15px 0px 5px 0px;
-            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);;
-            color:white;
-            border:1px solid #3137c5;
-            animation:bring_in_button 1s ease-in-out forwards;
-        }
-        button.st-emotion-cache-1rwb540.e1e4lema2:active{
-            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);;
-            color:white;
-            border:1px solid #3137c5;
-        }
-        button.st-emotion-cache-1rwb540.e1e4lema2:focus:not(:active){
-            border:1px solid #3137c5;
-            color:white;
-        }
-        button.st-emotion-cache-1rwb540.e1e4lema2:focus-visible{
-            box-shadow:#3137c5 0px 0px 0px 0.2rem;
+        .stColumn.st-emotion-cache-3u1gzc.eertqu01:hover{
+            background-color:white;
+            color:black;
+            border:1px solid white;
+            border-radius: 50px;
+            box-shadow: 0 2px 12px rgba(35,39,141,0.15);
         }
         button.st-emotion-cache-2yl1y1.e1e4lema3:hover{
-            color:#3137c5;
+            color:black;
         }
         button.st-emotion-cache-2yl1y1.e1e4lema3:active{
-            color:white;
+            color:black;
         }
-        button.st-emotion-cache-2yl1y1.e1e4lema3:focus-visible {
-            color: white;
+        button.st-emotion-cache-2yl1y1.e1e4lema3:focus-visible{
+            color: black;
             box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 0px 0.2rem;
-        }
-        h3#product-description{
-            text-align:center;
-            margin: 70px;
-            margin-top: 30px;
-            margin-left: 0px;
-            margin-right: 0px;
-            margin-bottom:0px;
-            animation:fade_in_product_text 0.5s ease-in-out forwards;
-        }
-        p#quantity{
-            margin-top: 7px;
-            margin-bottom: 0px;
-            text-align: center;
-            padding: 0px;
-        }
-        .st-emotion-cache-13o7eu2.eertqu02:has(> .stVerticalBlock.st-key-add_to_cart_qty.st-emotion-cache-gsx7k2.eertqu03) {
-            display: flex;
-            width: 80%;
-            justify-content: center;
-            /* align-items: center; */
-            align-self: anchor-center;
-        }
-        .stVerticalBlock.st-key-add_to_cart_qty.st-emotion-cache-gsx7k2.eertqu03 {
-            border: 1px solid black;
-            border-radius: 50px;
-            width: 80%;
-        }
-        p#product_price {
-            text-align: center;
-            font-size: 35px;
-            margin-top:30px;
-            margin-bottom:50px;
-            animation:fade_in_product_text 0.5s ease-in-out forwards;
-        }
-        span.st-emotion-cache-gi0tri.e1g8wfdw3 {
-            display: none;
-        }
-        .stHorizontalBlock.st-emotion-cache-ajtf3x.eertqu03{
-            flex-wrap:wrap;
-        }
-
-        @keyframes fade_in_img{
-            from{
-                opacity:0;
-                pointer-events:none;
-                transform:translateY(40px) scale(0.90);
-            }
-            to{
-                opacity:1;
-                pointer-events:auto;
-                transform:translateY(0px) scale(1);
-            }
-        }
-        @keyframes fade_in_product_text{
-            from{
-                opacity:0;
-                pointer-events:none;
-                transform:translateY(40px);
-            }
-            to{
-                opacity:1;
-                pointer-events:auto;
-                transform:translateY(0px);
-            }
-        }
-        @keyframes bring_in_button{
-            0%{
-                content-visibility:hidden;
-                opacity:0;
-                pointer-events:none;
-                width:0%;
-            }
-            100%{
-                content-visibility:auto;
-                opacity:1;
-                pointer-events:auto;
-                width:80%;
-            }
-
         }
         
     </style>
 """
 
+back_button_styles = """
+    <style>
+        .stElementContainer.element-container.st-key-back_to_home.st-emotion-cache-r6om3p.eertqu00{
+            display: flex;
+            align-content: center;
+            margin:18px;
+        }
+    </style>
+"""
+
+button_styles = """
+    <style>
+        .st-emotion-cache-r6om3p{
+            width:100%;
+        }
+        .stVerticalBlock.st-key-button_section.st-emotion-cache-gsx7k2.eertqu03{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height:100px;
+            width:100%;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2{
+            margin:5px;
+            padding:0.8rem;
+            border: 1px solid #23278D;
+            border-radius:40px;
+            width:70%;
+            background-image: linear-gradient(to bottom, #4a50c7, #23278D); /* lighter blue */
+            color: #fff; /* white text */
+            font-weight: bold;
+            transition: background-image 0.3s cubic-bezier(0.4,0,0.2,1), border 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .stButton.st-emotion-cache-8atqhb.e1mlolmg0{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:hover{
+            background-image: linear-gradient(to bottom, #181b5e, #121C7B); /* darker blue */
+            color: #fff; /* keep white text */
+            border:1px solid #3137c5;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:active{
+            background-image: linear-gradient(to bottom, #181b5e, #121C7B);
+            color: #fff;
+            border:1px solid #3137c5;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:focus:not(:active){
+            border:1px solid #3137c5;
+            color:#fff;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2:focus-visible{
+            box-shadow:#3137c5 0px 0px 0px 0.16rem;
+        }
+        p{
+            overflow:hidden;
+            position:relative;
+        }
+    </style>
+"""
+
+product_style = """
+    <style>
+        .stVerticalBlock.st-key-product_content.st-emotion-cache-gsx7k2.eertqu03{
+            display: flex;
+            justify-content: space-between;
+            height: 350px;
+            flex-direction: column;
+        }
+    </style>
+"""
+
+product_description_style = """
+    <style>
+        .st-emotion-cache-1nwdr1w.e1g8wfdw0{
+            display:flex;
+            align-item: center;
+            justify-content:center;
+        }
+        h1{
+            text-align:center;
+        }
+        h5{
+            text-align:center;
+        }
+        p#product_price{
+            text-align:center;
+            font-size:2rem;
+        }
+        span.st-emotion-cache-gi0tri.e1g8wfdw3{
+            display:none;
+        }
+    </style>
+"""
+
+product_image_style = """
+    <style>
+        img#product_image{
+            width: 450px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+"""
+
+add_to_cart_sub_button_styles = """
+    <style>
+        .stVerticalBlock.st-key-add_to_cart_qty.st-emotion-cache-gsx7k2.eertqu03{
+            width: 70%;
+            padding:0.2rem;
+            display: flex;
+            justify-self: anchor-center;
+            border: 1px solid black;
+            border-radius: 50px;
+            align-content: stretch;
+        }
+    </style>
+"""
+
+page_animation = """
+    <style>
+        h1,h5,p#product_price{
+            animation:text_animation 1s ease-in-out forwards;
+        }
+        img#product_image{
+            animation:image_animation 1s ease-in-out forwards;
+        }
+        button.st-emotion-cache-1rwb540.e1e4lema2{
+            animation:button_animation 1s ease-in-out forwards; 
+        }
+
+        @keyframes image_animation{
+            from{
+                opacity:0;
+                transform:translateY(40px) scale(0.90);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0) scale(1);
+            }
+        }
+        @keyframes text_animation {
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+        @keyframes button_animation{
+            from{
+                opacity:0;
+                width:10%;
+            }
+            to{
+                opacity:1;
+                width:70%;
+            }
+        }
+    </style>
+"""
+
+
 def product_page():
     st.markdown(remove_header_footer,unsafe_allow_html=True)
-    st.markdown(styles,unsafe_allow_html=True)
-    back_btn_col,product_col = st.columns([1,10])
-    with st.container(key = "back_button_area"):
-        with back_btn_col:
-            st.button(label="",icon = ":material/arrow_back:",type="tertiary",key = "back_to_home",on_click=to_home_page)
-        with product_col:
-            st.markdown("<br><br><br>",unsafe_allow_html=True)
-    with st.container(key = "product_area"):
-        with back_btn_col:
-            pass
-        with product_col:
-            product_img_col,product_description_col = st.columns(2)
-            with product_img_col:
-                st.image("https://placehold.co/100x100?text=Product", use_container_width=True)
+    st.markdown(navigation_bar_styles,unsafe_allow_html=True)
+    st.markdown(back_button_styles,unsafe_allow_html=True)
+    st.markdown(product_style,unsafe_allow_html=True)
+    st.markdown(product_description_style,unsafe_allow_html=True)
+    st.markdown(product_image_style,unsafe_allow_html=True)
+    st.markdown(button_styles,unsafe_allow_html=True)
+    st.markdown(add_to_cart_sub_button_styles,unsafe_allow_html=True)
+    st.markdown(page_animation,unsafe_allow_html=True)
+    with st.container(key = "navigation_bar_section"):
+        logo_col,search_bar_col,other_col = st.columns([1,4,3])
+        with logo_col:
+            st.image("https://placehold.co/80x30?text=LOOTO", width=100)
+        with search_bar_col:
+            search_bar = st.text_input(
+                label="Search",
+                label_visibility="collapsed",
+                placeholder="Search",
+                key = "navigation_search_bar"
+            )
+        with other_col:
+            cart_col,orders_col,user_col = st.columns(3)
+            with cart_col:
+                st.button(
+                    label="My Cart",
+                    type="tertiary",
+                    help = "**Go To Cart**",
+                    key = "cart_button"
+                )
+            with orders_col:
+                st.button(
+                    label="My Orders",
+                    type="tertiary",
+                    help = "**Go To Orders**",
+                    key = "orders_button"
+                )
+            with user_col:
+                user_label = give_user_name() if check_user_exist() else "SignUp/Login"
+                user_help = f"**{give_user_name()}**" if check_user_exist() else "**SignUp/Login**"
+                st.button(
+                    label=user_label,
+                    help = user_help,
+                    type="tertiary",
+                    key = "user_button",
+                )
+    product_id = st.session_state["view_product_id"]
+    product_info = extract_product_by_id(product_id,st.session_state["all_products"])
+    user_product_quantity_index = find_product_quantity_in_user_cart(
+                            product_id,
+                            st.session_state["user_cart_item"]
+                        )
+    product_image = f"""
+    <img id = 'product_image' src = '{product_info["product_image"]}' alt = '{product_info["product_name"]}'>
+    """
+    with st.container(key = "product_section"):
+        back_btn_col,product_col = st.columns([1,10])
+        with st.container(key = "back_button_section"):
+            with back_btn_col:
+                st.button(label="",icon = ":material/arrow_back:",type="tertiary",key = "back_to_home",on_click=go_to_last_page)
+            with product_col:
+                # st.markdown("<br><br><br>",unsafe_allow_html=True)
+                pass
+        with st.container(key = "product_description_section"):
+            product_image_col,product_description_col = st.columns(2)
+            with product_image_col:
+                st.markdown(product_image,unsafe_allow_html=True)
             with product_description_col:
-                st.markdown("<h1 id = 'product_name'>Product Name</h1>",unsafe_allow_html=True)
-                st.markdown("<h3 id = 'product_description'>Product Description</h3>",unsafe_allow_html=True)
-                st.markdown("<p id = 'product_price'>₹0.00</p>",unsafe_allow_html=True)
-                if(st.session_state["cart_qty"] == 0):
-                    st.button("Add to Cart",type="secondary",key = "add_to_cart",on_click=add_to_cart)
-                else:
-                    with st.container(key = "add_to_cart_qty"):
-                        dec_col,qty_col,inc_col = st.columns([0.5,1,0.5])
-                        with dec_col:
-                            st.button(type="tertiary",label="",icon=":material/remove:",on_click=remove_from_cart)
-                        with qty_col:
-                            st.markdown(f"<p id = 'quantity'>{st.session_state["cart_qty"]}</p>",unsafe_allow_html=True)
-                        with inc_col:
-                            st.button(type="tertiary",label="",icon=":material/add:",on_click=add_to_cart)
-                st.button("Buy Now",type="secondary",key = "buy_now_button")
-                    
-              
+                with st.container(key = "product_content"):
+                    with st.container(key = "product_detail"):
+                        st.markdown(f"<h1 id = 'product_name'>{product_info["product_name"]}</h1>",unsafe_allow_html=True)
+                        st.markdown(f"<h5 id = 'product_description'>{product_info["product_description"]}</h3>",unsafe_allow_html=True)
+                        st.markdown(f"<p id = 'product_price'>₹ {product_info["product_price"]}</p>",unsafe_allow_html=True)
+                    with st.container(key = "buttons_section"):
+                        if(user_product_quantity_index is None):
+                            st.button(
+                                label = "Add To Cart",
+                                key=f"add_to_cart",
+                                type="secondary",
+                                on_click=check_add_to_cart,
+                                args=(product_id,)
+                            )
+                        else:
+                            with st.container(key=f"add_to_cart_qty"):
+                                dec_col, qty_col, inc_col = st.columns([0.5, 1, 0.5])
+                                with dec_col:
+                                    st.button(
+                                        type="tertiary",
+                                        label="",
+                                        icon=":material/remove:",
+                                        key=f"dec_cart",
+                                        on_click=decrease_quantity_in_cart,
+                                        args=(st.session_state["user_id"],product_id,st.session_state['user_cart_item'],)
+                                    )
+                                with qty_col:
+                                    st.markdown(
+                                        f"""<p id='quantity'>{
+                                            find_the_quantity_of_product_in_cart(
+                                                    user_product_quantity_index,
+                                                    st.session_state['user_cart_item']
+                                                )
+                                        }</p>""",
+                                        unsafe_allow_html=True
+                                    )
+                                with inc_col:
+                                    st.button(
+                                        type="tertiary",
+                                        label="",
+                                        icon=":material/add:",
+                                        key=f"inc_cart",
+                                        on_click=increase_quantity_in_cart,
+                                        args=(st.session_state["user_id"],product_id,st.session_state['user_cart_item'],)      
+                                    )
+                        st.button(
+                            label = "Buy Now",
+                            key=f"buy_now_button",
+                            type="secondary"
+                        )
+                

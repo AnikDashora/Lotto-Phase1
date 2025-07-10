@@ -6,7 +6,7 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
 from services.product_service import extract_product_by_id
-from session_state.session_manager import to_signup_page,save_categories_navigation,check_user_exist,give_user_name
+from session_state.session_manager import to_signup_page,save_categories_navigation,check_user_exist,give_user_name,to_view_product_page
 from services.cart_service import find_product_quantity_in_user_cart,find_the_quantity_of_product_in_cart,add_to_cart,increase_quantity_in_cart,decrease_quantity_in_cart
 
 def check_add_to_cart(product_id):
@@ -177,12 +177,12 @@ product_section_styles = """
             transition:background-image 1s cubic-bezier(0.4,0,0.2,1),border 1s cubic-bezier(0.4,0,0.2,1)
         }
         button.st-emotion-cache-1rwb540.e1e4lema2:hover{
-            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);
+            background-image:linear-gradient(to bottom, #4a50c7, #23278D);;
             color:white;
             border:1px solid #3137c5;
         }
         button.st-emotion-cache-1rwb540.e1e4lema2:active{
-            background-image:linear-gradient(to bottom, #565bd5cc, #565bd5);
+            background-image:linear-gradient(to bottom, #4a50c7, #23278D);;
             color:white;
             border:1px solid #3137c5;
         }
@@ -210,6 +210,9 @@ product_section_styles = """
             cursor: pointer;
             background: #f4f6ff;
         }
+        svg.e10vaf9m1.st-emotion-cache-1u2dcfn.ex0cdmw0{
+            display:none;
+        }
 
         
     </style>
@@ -218,11 +221,10 @@ product_section_styles = """
 fade_in_animation = """
     <style>
         .stVerticalBlock.st-key-navigation_bar_section.st-emotion-cache-gsx7k2.eertqu03,
-        .stVerticalBlock.st-key-category_bar_section.st-emotion-cache-gsx7k2.eertqu03{
-            animation:fade_in 1s ease-in-out forwards;
-        }
+        .stVerticalBlock.st-key-category_bar_section.st-emotion-cache-gsx7k2.eertqu03,
         .stVerticalBlock.st-key-product_section.st-emotion-cache-gsx7k2.eertqu03{
-            
+            opacity:0;
+            animation:fade_in 1s ease-in-out forwards;
         }
         @keyframes fade_in{
             from{
@@ -236,16 +238,7 @@ fade_in_animation = """
                 transform:translateY(0px) scale(1)
             }
         }
-        @keyframes fade_up{
-            from{
-                opacity:0;
-                transform:translateY(40px) scale(0.5)
-            }
-            to{
-                opacity:1;
-                transform:translateY(0px) scale(1)
-            }
-        }
+        
     </style>
 """
 
@@ -339,7 +332,12 @@ def home_page():
                         st.markdown("<br>", unsafe_allow_html=True)
                         st.markdown(f"**₹{product_info['product_price']}**")
                         st.markdown("<br>", unsafe_allow_html=True)
-                        st.button(label="View Product", key=f"view_product_{product_id}", type="secondary")
+                        st.button(label="View Product",
+                                  key=f"view_product_{product_id}",
+                                  type="secondary",
+                                  on_click=to_view_product_page,
+                                  args=(product_id,)
+                        )
                         st.markdown("<br>", unsafe_allow_html=True)
                         add_to_cart_col, buy_now_col = st.columns(2)
 
@@ -369,7 +367,7 @@ def home_page():
                                             f"""<p id='quantity'>{
                                                 find_the_quantity_of_product_in_cart(
                                                     user_product_quantity_index,
-                                                     st.session_state['user_cart_item']
+                                                    st.session_state['user_cart_item']
                                                 )
                                             }</p>""",
                                             unsafe_allow_html=True
