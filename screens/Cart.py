@@ -5,27 +5,31 @@ import sys
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-remove_header_footer = """
-    <style>
-        #MainMenu {visibility: hidden;}
-        header {visibility: hidden;}
-        footer {visibility: hidden;}
+cart_items = [
+    {"product_id":"p0001","Quantity":4},
+    {"product_id":"p0002","Quantity":2},
+    {"product_id":"p0003","Quantity":3},
+    {"product_id":"p0004","Quantity":4},
+    {"product_id":"p0005","Quantity":5},
+    {"product_id":"p0006","Quantity":41},
+    {"product_id":"p0007","Quantity":46},
+    {"product_id":"p0008","Quantity":7},
+    {"product_id":"p0009","Quantity":8},
+    {"product_id":"p0011","Quantity":44},
+    {"product_id":"p0041","Quantity":43},
+]
 
-        /* Hide the orange loading progress bar */
-        div[data-testid="stDecoration"] {
-            display: none !important;
-        }
-
-        /* Remove top padding to avoid white space */
-        .block-container {
-            padding-top: 0rem !important;
-        }
-    </style>
-"""
 
 
 def cart_page():
-    st.markdown(remove_header_footer,unsafe_allow_html=True)
+    pass
+
+
+
+                    
+                    
+
+
     
 
 

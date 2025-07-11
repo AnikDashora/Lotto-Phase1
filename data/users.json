@@ -10,5 +10,23 @@
         "username": "Anik Dashora",
         "email": "dashora.anik@gmail.comin",
         "password": "1051099041381011346128861264456012660115601199426562974286635442554255413576990423569904126601156011994"
+    },
+    {
+        "user_id": "u0003",
+        "username": "Anik Dashora",
+        "email": "dashora.anik@gmail.in",
+        "password": "1051099041381011346128861264456012660115601199426562974286635442554255413576990423569904126601156011994"
+    },
+    {
+        "user_id": "u0004",
+        "username": "Prakhar Pathak",
+        "email": "prrrr@gmail.com",
+        "password": "1311468101357699049904442626562760286613576135761357613576"
+    },
+    {
+        "user_id": "u0005",
+        "username": "Prakhar PAthak",
+        "email": "prakk@gmail.com",
+        "password": "1311468101357699041199444262656276028661357699041199411994"
     }
 ]

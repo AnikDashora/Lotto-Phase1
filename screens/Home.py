@@ -6,7 +6,7 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
 from services.product_service import extract_product_by_id
-from session_state.session_manager import to_signup_page,save_categories_navigation,check_user_exist,give_user_name,to_view_product_page
+from session_state.session_manager import to_signup_page,save_categories_navigation,check_user_exist,give_user_name,to_view_product_page,to_cart_page
 from services.cart_service import find_product_quantity_in_user_cart,find_the_quantity_of_product_in_cart,add_to_cart,increase_quantity_in_cart,decrease_quantity_in_cart
 
 def check_add_to_cart(product_id):
@@ -267,7 +267,8 @@ def home_page():
                     label="My Cart",
                     type="tertiary",
                     help = "**Go To Cart**",
-                    key = "cart_button"
+                    key = "cart_button",
+                    on_click=to_cart_page
                 )
             with orders_col:
                 st.button(
@@ -299,8 +300,8 @@ def home_page():
                     on_click=save_categories_navigation,
                     args=(st.session_state["categories"][category],)
                 )
-    
-    st.markdown("<br><br>",unsafe_allow_html=True)
+
+    st.markdown("<br>",unsafe_allow_html=True)
 
     with st.container(key="product_section"):
         products = len(st.session_state["products_ids"])

@@ -67,11 +67,5 @@ def landing_page():
     st.header("Welcome to LOTTO")
     tag_line = "Ab nahi loge tho kab....."
     st.subheader(tag_line)
-    lets_start = st.button("Let's start")
-    if(lets_start):
-        save_categories(categories_for_home_page())
-        save_products(product_id_for_home())
-        save_all_products(product_deserialization())
-        to_home_page()
-        st.rerun()
+    st.button("Let's start",on_click=to_home_page)
     

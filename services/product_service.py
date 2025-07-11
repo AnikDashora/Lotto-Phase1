@@ -77,7 +77,8 @@ def extract_product_ids():# return all the product ids in data file
 
 def product_id_for_home():#return the product ids to display at home page
     product_ids = extract_product_ids()
-    return product_ids[:50]
+    random.shuffle(product_ids)
+    return product_ids[:20]
     
 def extract_product_by_id(product_id,products):#return product info in dict by pids
     product_idx = int(product_id[1:])-1

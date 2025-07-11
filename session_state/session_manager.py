@@ -6,7 +6,7 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
 from services.auth_service import extract_user_id_using_email,extract_user_name_by_uid
-from services.product_service import categories_deserialization
+from services.product_service import categories_deserialization,product_id_for_home,categories_for_home_page,product_deserialization
 from services.cart_service import add_to_cart
 
 PAGES = ("looto/screens/landing_page",#0
@@ -38,16 +38,16 @@ def initialize_session_states():
         st.session_state["user_email"] = None
     
     if("all_products" not in st.session_state):#this is for fast reterivatl of data
-        st.session_state["all_products"] = None
+        st.session_state["all_products"] = product_deserialization()
 
     if("products_ids" not in st.session_state):#stores product ids for home page
-        st.session_state["products_ids"] = None
+        st.session_state["products_ids"] = product_id_for_home()
     
     if("view_product_id" not in st.session_state):#stores the pid the product for the view in the product page
         st.session_state["view_product_id"] = None
 
     if("categories" not in st.session_state):#store name of the "categories" for home page
-        st.session_state["categories"] = None
+        st.session_state["categories"] = categories_for_home_page()
 
     if("user_cart_item" not in st.session_state):#stoes the list of dict that has pid and qty of the user cart
         st.session_state["user_cart_item"] =None
@@ -79,6 +79,15 @@ def go_to_last_page():
         (st.session_state["pages"][st.session_state["page_index"]] == 1))):
         st.session_state["pages"].pop()
         st.session_state["page_index"] -= 1
+
+def to_cart_page():
+    if(check_user_exist()):
+        st.session_state["pages"].append(3)
+        st.session_state["page_index"] += 1
+    else:
+        st.session_state["pages"].append(3)
+        st.session_state["pages"].append(6)
+        st.session_state["page_index"] += 2
 
 def to_view_product_page(view_product_id):
     st.session_state["view_product_id"] = view_product_id

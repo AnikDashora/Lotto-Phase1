@@ -293,7 +293,7 @@ page_animation = """
         @keyframes button_animation{
             from{
                 opacity:0;
-                width:10%;
+                width:15%;
             }
             to{
                 opacity:1;
@@ -305,6 +305,12 @@ page_animation = """
 
 
 def product_page():
+    product_id = st.session_state["view_product_id"]
+    product_info = extract_product_by_id(product_id,st.session_state["all_products"])
+    user_product_quantity_index = find_product_quantity_in_user_cart(
+                            product_id,
+                            st.session_state["user_cart_item"]
+                        )
     st.markdown(remove_header_footer,unsafe_allow_html=True)
     st.markdown(navigation_bar_styles,unsafe_allow_html=True)
     st.markdown(back_button_styles,unsafe_allow_html=True)
@@ -351,12 +357,7 @@ def product_page():
                     key = "user_button",
                     on_click=to_signup_page
                 )
-    product_id = st.session_state["view_product_id"]
-    product_info = extract_product_by_id(product_id,st.session_state["all_products"])
-    user_product_quantity_index = find_product_quantity_in_user_cart(
-                            product_id,
-                            st.session_state["user_cart_item"]
-                        )
+
     product_image = f"""
     <img id = 'product_image' src = '{product_info["product_image"]}' alt = '{product_info["product_name"]}'>
     """
