@@ -5,7 +5,7 @@ import random
 BASE_DIR = os.path.dirname(__file__)
 
 USER_DATA_FILE = os.path.join(BASE_DIR,"..","data","users.json")
-
+USER_DATA_FILE = os.path.abspath(USER_DATA_FILE)
 def check_file_exist():
     return os.path.isfile(USER_DATA_FILE)
 

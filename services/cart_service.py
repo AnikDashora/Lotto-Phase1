@@ -5,7 +5,7 @@ import random
 import streamlit as st
 BASE_DIR = os.path.dirname(__file__)
 CART_DATA_FILE = os.path.join(BASE_DIR,"..","data","cart.json")
-
+CART_DATA_FILE = os.path.abspath(CART_DATA_FILE)
 def check_file_exist():
     return os.path.isfile(CART_DATA_FILE)
 
