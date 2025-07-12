@@ -3,8 +3,8 @@ import os
 import sys
 import random
 BASE_DIR = os.path.dirname(__file__)
-PRODUCT_DATA_FILE = os.path.join(BASE_DIR,"data","Product.json")
-CATEGORIES_DATA_FILE = os.path.join(BASE_DIR,"data","categories.json")
+PRODUCT_DATA_FILE = os.path.join(BASE_DIR,"..","data","Product.json")
+CATEGORIES_DATA_FILE = os.path.join(BASE_DIR,"..","data","categories.json")
 
 def check_file_exist():
     return os.path.isfile(PRODUCT_DATA_FILE)

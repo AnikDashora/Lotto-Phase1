@@ -2,7 +2,7 @@ import json
 import os
 import sys
 BASE_DIR = os.path.dirname(__file__)
-ORDERS_DATA_FILE =os.path.join(BASE_DIR,"data","order.json")
+ORDERS_DATA_FILE =os.path.join(BASE_DIR,"..","data","order.json")
 
 
 
