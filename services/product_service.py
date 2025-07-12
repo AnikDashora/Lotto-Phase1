@@ -3,7 +3,7 @@ import os
 import sys
 import random
 BASE_DIR = os.path.dirname(__file__)
-PRODUCT_DATA_FILE = os.path.join(BASE_DIR,"..","data","Product.json")
+PRODUCT_DATA_FILE = os.path.join(BASE_DIR,"..","data","product.json")
 CATEGORIES_DATA_FILE = os.path.join(BASE_DIR,"..","data","categories.json")
 PRODUCT_DATA_FILE = os.path.abspath(PRODUCT_DATA_FILE)
 CATEGORIES_DATA_FILE = os.path.abspath(CATEGORIES_DATA_FILE)
