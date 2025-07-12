@@ -2,7 +2,7 @@ import json
 import os
 import sys
 
-ORDERS_DATA_FILE = "D:\\Lotto-Phase1\\data\\order.json"
+ORDERS_DATA_FILE = "data\\order.json"
 
 def check_file_exist():
     return os.path.isfile(ORDERS_DATA_FILE)

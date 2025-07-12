@@ -2,7 +2,7 @@ import json
 import os
 import random
 
-USER_DATA_FILE = "D:\\Lotto-Phase1\\data\\users.json"
+USER_DATA_FILE = "data\\users.json"
 
 def check_file_exist():
     return os.path.isfile(USER_DATA_FILE)

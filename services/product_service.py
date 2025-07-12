@@ -3,8 +3,8 @@ import os
 import sys
 import random
 
-PRODUCT_DATA_FILE = "D:\\Lotto-Phase1\\data\\products.json"
-CATEGORIES_DATA_FILE = "D:\\Lotto-Phase1\\data\\categories.json"
+PRODUCT_DATA_FILE = "data\\products.json"
+CATEGORIES_DATA_FILE = "data\\categories.json"
 
 def check_file_exist():
     return os.path.isfile(PRODUCT_DATA_FILE)
