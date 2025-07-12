@@ -2,7 +2,9 @@ import json
 import os
 import random
 
-USER_DATA_FILE = "data\\users.json"
+BASE_DIR = os.path.dirname(__file__)
+
+USER_DATA_FILE = os.path.join(BASE_DIR,"data","users.json")
 
 def check_file_exist():
     return os.path.isfile(USER_DATA_FILE)

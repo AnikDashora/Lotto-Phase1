@@ -3,7 +3,8 @@ import os
 import sys
 import random
 import streamlit as st
-CART_DATA_FILE = "data\\cart.json"
+BASE_DIR = os.path.dirname(__file__)
+CART_DATA_FILE = os.path.join(BASE_DIR,"data","cart.json")
 
 def check_file_exist():
     return os.path.isfile(CART_DATA_FILE)
