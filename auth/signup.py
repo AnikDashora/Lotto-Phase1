@@ -115,6 +115,3 @@ def sign_up_form():
                 st.error("User already exist")
         else:
             st.error("Invalid Entries")
-
-
-
