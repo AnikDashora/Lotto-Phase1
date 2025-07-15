@@ -64,7 +64,7 @@ def landing_page():
         unsafe_allow_html=True,
     )
 
-    st.header("Welcome to LOTTO")
+    st.header("Welcome to LOOTO")
     tag_line = "Ab nahi loge tho kab....."
     st.subheader(tag_line)
     st.button("Let's start",on_click=to_home_page)

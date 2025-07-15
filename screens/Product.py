@@ -5,7 +5,7 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 
-from session_state.session_manager import check_user_exist,give_user_name,go_to_last_page,to_signup_page
+from session_state.session_manager import check_user_exist,give_user_name,go_to_last_page,to_signup_page,to_cart_page
 from services.cart_service import find_product_quantity_in_user_cart,find_the_quantity_of_product_in_cart,add_to_cart,increase_quantity_in_cart,decrease_quantity_in_cart
 from services.product_service import extract_product_by_id
 
@@ -338,7 +338,8 @@ def product_page():
                     label="My Cart",
                     type="tertiary",
                     help = "**Go To Cart**",
-                    key = "cart_button"
+                    key = "cart_button",
+                    on_click=to_cart_page
                 )
             with orders_col:
                 st.button(
