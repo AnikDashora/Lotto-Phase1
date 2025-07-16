@@ -75,7 +75,7 @@ def extract_user_email():
     emails = [user["email"] for user in users]
     return emails
 
-def extract_user_name():
+def extract_users():
     users = user_deserialization()
     names = [user["username"] for user in users]
     return names
@@ -115,8 +115,8 @@ def verify_user(email,password):
     else:
         return False
 
-def extract_user_name_by_uid(uid):
-    users = extract_user_name()
+def extract_users_by_uid(uid):
+    users = extract_users()
     return users[int(uid[1:])-1]
 
 def extract_user_id_using_email(useremail):
@@ -127,4 +127,3 @@ def extract_user_id_using_email(useremail):
 
 def extract_user_ids():
     return [user["user_id"] for user in user_deserialization()]
-
