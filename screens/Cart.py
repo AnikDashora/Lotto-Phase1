@@ -302,7 +302,6 @@ subtotal_section_styles = """
             font-size: x-large;
             font-weight: bold;
             text-align: center;
-
         }
     </style>
 """

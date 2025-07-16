@@ -90,7 +90,7 @@ def save_cart_in_data_file(user_id,user_cart_state):
     carts[user_index]["cart_items"] = user_cart_state
     writing_cart_file(carts)
 
-def subtotal_price(cart_items,all_products):
+def subtotal_price(cart_items,all_products):#returns the subtotal amount of the user cart args-> user_cart,all_the_product_items
     subtotal = 0
     for item in cart_items:
         product_id = item["product_id"]
