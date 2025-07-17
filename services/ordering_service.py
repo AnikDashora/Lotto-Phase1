@@ -100,40 +100,6 @@ def add_user_order(user_id,order_data):
     all_orders[user_idx]["orders"].append(user_order)
     writing_orders_file(all_orders)
 
-start_date = datetime(2022, 1, 1)
-end_date = datetime(2024, 12, 31)
-status = ["Ordered", "Packed", "Shipped", "Out for Delivery", "Delivered", "Cancelled"]
-products = extract_product_ids()
-users_orders = reading_orders_file()
-for user in users_orders:
-    number_of_orders = random.randint(0,5)
-    for order in range(number_of_orders):#make a single order with all details
-        order_item_ids = []
-        number_of_item = random.randint(1,5)
-        while(len(order_item_ids) != number_of_item):#makeing the product ids
-            product_id_idx = random.randint(0,len(products)-1)
-            product_id = products[product_id_idx]
-            if(product_id not in order_item_ids):
-                order_item_ids.append(product_id)
-
-        order_items = []
-        for item in order_item_ids:
-            qty = random.randint(1,5)
-            lockprice = extract_product_price(item)
-            order_deail = {
-                "product_id": item,     
-                "quantity": qty,             
-                "locked_price": lockprice
-            }
-            order_items.append(order_deail)
-        order_data = {
-            "items":order_items,
-            "timestamp":random_timestamp(start_date,end_date),
-            "status":status[random.randint(0,len(status)-1)]
-        }
-        add_user_order(user["user_id"],order_data)
-    print(f"{user["user_id"]} data saves")
-print("all users data_saved")
     
 
 
