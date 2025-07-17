@@ -103,3 +103,9 @@ def categories_for_home_page():#return the categories(name) in string for home p
 def extract_product_id_by_categories(categories):#return the list of products ids under the categories
     return categories_deserialization()[categories]  
 
+def extract_product_price(product_id):
+    products = product_deserialization()
+    product_idx = int(product_id[1:])-1
+    return products[product_idx]["product_price"]
+
+

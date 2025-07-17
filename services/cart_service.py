@@ -6,6 +6,7 @@ import streamlit as st
 BASE_DIR = os.path.dirname(__file__)
 CART_DATA_FILE = os.path.join(BASE_DIR,"..","data","cart.json")
 CART_DATA_FILE = os.path.abspath(CART_DATA_FILE)
+
 def check_file_exist():
     return os.path.isfile(CART_DATA_FILE)
 
@@ -65,7 +66,6 @@ def add_to_cart(user_id,product_id,user_cart_state):#this is add to cart button 
     user_cart_state.append(product)
     save_cart_in_data_file(user_id,user_cart_state)
 
-
 def increase_quantity_in_cart(user_id,product_id,user_cart_state):#incresr the quantity of the cart item args -> pid,session state of user cart
     product_index = find_product_quantity_in_user_cart(product_id,user_cart_state)
     user_cart_state[product_index]["quantity"] += 1
@@ -98,8 +98,3 @@ def subtotal_price(cart_items,all_products):#returns the subtotal amount of the 
         product_detail = all_products[product_idx]
         subtotal += (product_detail["product_price"]*item["quantity"])
     return subtotal
-
-
-
-
-    

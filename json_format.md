@@ -63,7 +63,7 @@ This document outlines the structure and expected data types for all JSON files 
       ],
       "timestamp": "YYYY-MM-DD HH:MM",  // string: ISO timestamp
       "current_status": "Ordered"       // string: current stage of delivery
-    }
+    },
   ]
 }
 // Status can be: "Ordered", "Packed", "Shipped", "Out for Delivery", "Delivered", "Cancelled"
