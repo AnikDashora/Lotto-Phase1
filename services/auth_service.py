@@ -6,7 +6,6 @@ BASE_DIR = os.path.dirname(__file__)
 
 USER_DATA_FILE = os.path.join(BASE_DIR,"..","data","users.json")
 USER_DATA_FILE = os.path.abspath(USER_DATA_FILE)
-
 def check_file_exist():
     return os.path.isfile(USER_DATA_FILE)
 
@@ -76,7 +75,7 @@ def extract_user_email():
     emails = [user["email"] for user in users]
     return emails
 
-def extract_users():
+def extract_user_name():
     users = user_deserialization()
     names = [user["username"] for user in users]
     return names
@@ -116,8 +115,8 @@ def verify_user(email,password):
     else:
         return False
 
-def extract_users_by_uid(uid):
-    users = extract_users()
+def extract_user_name_by_uid(uid):
+    users = extract_user_name()
     return users[int(uid[1:])-1]
 
 def extract_user_id_using_email(useremail):
@@ -128,3 +127,4 @@ def extract_user_id_using_email(useremail):
 
 def extract_user_ids():
     return [user["user_id"] for user in user_deserialization()]
+
